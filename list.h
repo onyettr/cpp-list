@@ -74,6 +74,9 @@ struct list_element_t {
   int element;
 };
 
+/*
+ * TODO: node needs to renamed to list_t, name is not clear
+ */
 class node {
    private:
      void *node_prev;
@@ -85,10 +88,10 @@ class node {
      node();                    // ctor
 
     // Member functions
-    void list_add_element ( list_element_t *lp);
-    void list_dump        ( node *p );
+    void list_add_element (list_element_t *lp);
+    void list_dump        (node *p );
     int  getNodecount     ();
-    int  setNodecount     (int);
+    void setNodecount     (int);
 };
 
 #endif // __LIST_H__

@@ -4,6 +4,9 @@ DEBUG =-g
 CFLAGS=-c -Wall -pedantic -DDEBUG_TRACE
 LFLAGS=
 
+CHECK		= cppcheck
+CHECK_FLAGS	= --language=c++ --enable=all
+
 # -DDEBUG_TRACE	Will turn on deep trace per function
 # -DEXCEPTION	Will use the real exceptions with the 'try' that's in the test harness
 
@@ -23,6 +26,9 @@ test01.o:	test01.cpp
 poortool.o:	poortool.c
 	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o poortool.o
 
+splint-me:
+	$(CHECK) $(CHECK_FLAGS) .
+	
 clean:
 	rm -f list.exe
 	rm -f list.o

@@ -73,6 +73,18 @@ Prototypes of all functions contained in this file (in order of occurance)
 ******************************************************************************
 */
 // Constructor time
+
+/**
+ * @function  node::node
+ *
+ * @brief     node ctor
+ *
+ * @param[in] none
+ *
+ * @return    None
+ *
+ * @note      ctor
+ */
 node::node(void) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: Basic Constructor called"  << endl;  
@@ -83,22 +95,65 @@ node::node(void) {
   node_count= 0;
 }
 
-// Destructor time
+/**
+ * @function  node::~node
+ *
+ * @brief     node dtor
+ *
+ * @param[in] none
+ *
+ * @return    None
+ *
+ * @note      dtor
+ */
 node::~node() {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: Basic Destructor called "  << endl;  
 #endif
 }
 
+/**
+ * @function  node::getNodeCount
+ *
+ * @brief     get the number of nodes created
+ *
+ * @param[in] none
+ *
+ * @return    int     number of created nodes
+ *
+ * @note
+ */
 int node::getNodecount (void) {
   return node_count;
 }
 
-int node::setNodecount (int count) {
+/**
+ * @function  node::setNodeCount
+ *
+ * @brief     Set the number of nodes to create
+ *
+ * @param[in] None
+ *
+ * @return    int
+ *
+ * @note
+ */
+void node::setNodecount (int count) {
   node_count = count;
 }
 
-void node::list_add_element ( list_element_t *lp) {
+/**
+ * @function  void node::list_add_element(list_element_t *lp)
+ *
+ * @brief     Add a new list element
+ *
+ * @param[in] list_element_t *lp    Pointer to new list element
+ *
+ * @return    none
+ *
+ * @note
+ */
+void node::list_add_element (list_element_t *lp) {
   int count = 0;
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_add_element called "  << endl;  
@@ -108,6 +163,17 @@ void node::list_add_element ( list_element_t *lp) {
   setNodecount(count);
 }
 
+/**
+ * @function  void node::list_dump(node *pHead)
+ *
+ * @brief     Dump a given list
+ *
+ * @param[in] node *pHead    Pointer to head of the given list
+ *
+ * @return    none
+ *
+ * @note
+ */
 void node::list_dump        ( node *pHead ) {
   if ( pHead != NULL ) {
     cout << "Number of nodes = " << getNodecount() << endl;
