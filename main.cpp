@@ -26,6 +26,7 @@ Includes
 */
 #include <iostream>
 #include "list.h"
+#include "test.h"
 
 using namespace std;
 
@@ -77,16 +78,7 @@ int main ( void )
   // Sign on
   cout << "C++ Examples Simple Linked List Class" << endl; 
 
-
-  /*
-   * create a new list
-   */ 
-  linked_list FirstList;
-
-  /*
-   * Add an element
-   */
-  FirstList.list_add_element(10);
+  test_add();
   
   //  poortool_init();
 }

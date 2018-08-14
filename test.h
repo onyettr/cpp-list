@@ -10,7 +10,6 @@
  * $Author: Onyettr $
  *
  * PURPOSE: 
- * Header file for simple linked list
  * 
  * $Revision:$
  * $History: $
@@ -23,8 +22,8 @@
 Includes
 ******************************************************************************
 */
-#ifndef __LIST_H__
-#define __LIST_H__
+#ifndef __TEST_H__
+#define __TEST_H__
 
 /*
 ******************************************************************************
@@ -62,31 +61,7 @@ Exported Global variables
 ******************************************************************************
 */
 
+int test_add(void);
 
-/*
- * linked list classs
- */
-struct list_element_t {
-  int element;
-  list_element_t *pNext;
-};
-
-/*
- * TODO: node needs to renamed to list_t, name is not clear
- */
-class linked_list {
-   private:
-     list_element_t *pHead;
-     list_element_t *pTail;
-     int list_count;
-   public:
-     ~linked_list();                   // dtor
-     linked_list();                    // ctor
-
-    // Member functions
-    void list_add_element (int value);
-    void list_dump        (void);
-};
-
-#endif // __LIST_H__
+#endif // __TEST_H__
 

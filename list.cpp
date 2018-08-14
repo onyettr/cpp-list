@@ -147,9 +147,40 @@ void linked_list::list_add_element (int value) {
     pTail->pNext = Temp;
     pTail = pTail->pNext;
   }
+  list_count++;
   
   cout << "<" << this << ">TRACE: list_add_element Head " << pHead << endl;  
   cout << "<" << this << ">TRACE: list_add_element Tail " << pTail << endl;
+}
+
+/**
+ * @function  void linked_list::list_dump        (void) {
+ *
+ * @brief     Print out the linked list
+ *
+ * @param[in] none
+ *
+ * @return    none
+ *
+ * @note
+ */
+void linked_list::list_dump        (void) {
+  list_element_t *pCurrent;
+  
+  if ( pHead != NULL ) {
+    cout << "Number of nodes = " << list_count << endl;
+
+    pCurrent = pHead;
+    while (pCurrent != NULL) {
+      cout << "[" << pCurrent << "] ";
+      cout << pCurrent->element << endl;
+
+      pCurrent = pCurrent->pNext;
+    }
+  }
+  else {
+    cout << "Error: No elements in linked list" << endl;
+  }
 }
 
 #if 0

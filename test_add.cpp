@@ -1,5 +1,5 @@
-/******************************************************************************
- * 
+/*
+ *****************************************************************************
  * MODULE: C++ Programming Examples
  *
  * $Header: $
@@ -9,12 +9,13 @@
  *
  * $Author: Onyettr $
  *
- * PURPOSE: 
- * Header file for simple linked list
+ * NAME: 
+ * EMAIL:
+ *
+ * PURPOSE: Test harness for linked list add
  * 
  * $Revision:$
  * $History: $
- *
  ***************************************************************************** 
  */
 
@@ -23,8 +24,10 @@
 Includes
 ******************************************************************************
 */
-#ifndef __LIST_H__
-#define __LIST_H__
+#include <iostream>
+#include "list.h"
+
+using namespace std;
 
 /*
 ******************************************************************************
@@ -62,31 +65,41 @@ Exported Global variables
 ******************************************************************************
 */
 
-
 /*
- * linked list classs
- */
-struct list_element_t {
-  int element;
-  list_element_t *pNext;
-};
+******************************************************************************
+Prototypes of all functions contained in this file (in order of occurance)
+******************************************************************************
+*/
 
-/*
- * TODO: node needs to renamed to list_t, name is not clear
- */
-class linked_list {
-   private:
-     list_element_t *pHead;
-     list_element_t *pTail;
-     int list_count;
-   public:
-     ~linked_list();                   // dtor
-     linked_list();                    // ctor
+int test_add ( void )
+{
+  // Sign on
+  cout << "Linked List Class Test - add" << endl; 
 
-    // Member functions
-    void list_add_element (int value);
-    void list_dump        (void);
-};
+  /*
+   * create a new list
+   */ 
+  linked_list addTest;
+  
+  /*
+   * Add an element
+   */
+  cout << "Test01 - add single element" << endl;
+  addTest.list_add_element(10);
+  addTest.list_dump();  
 
-#endif // __LIST_H__
+  cout << "Test01 - add more   elements" << endl;  
+  addTest.list_add_element(20);
+  addTest.list_add_element(30);
+  addTest.list_add_element(40);
+  addTest.list_add_element(50);
+  addTest.list_add_element(60);  
+  addTest.list_dump();
 
+  return 0;
+}
+
+//
+// Fin
+//
+  
