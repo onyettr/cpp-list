@@ -9,9 +9,6 @@
  *
  * $Author: Onyettr $
  *
- * NAME: Richard Onyett 
- * EMAIL: 
- *
  * PURPOSE: 
  * Header file for simple linked list
  * 
@@ -70,28 +67,24 @@ Exported Global variables
  * linked list classs
  */
 struct list_element_t {
-  //  void *element;
   int element;
+  list_element_t *pNext;
 };
 
 /*
  * TODO: node needs to renamed to list_t, name is not clear
  */
-class node {
+class linked_list {
    private:
-     void *node_prev;
-     void *node_next;
-     int node_count;
-     list_element_t record;
+     list_element_t *pHead;
+     list_element_t *pTail;
+     int list_count;
    public:
-     ~node();                   // dtor
-     node();                    // ctor
+     ~linked_list();                   // dtor
+     linked_list();                    // ctor
 
     // Member functions
-    void list_add_element (list_element_t *lp);
-    void list_dump        (node *p );
-    int  getNodecount     ();
-    void setNodecount     (int);
+    void list_add_element (int value);
 };
 
 #endif // __LIST_H__

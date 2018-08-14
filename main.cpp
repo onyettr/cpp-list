@@ -74,28 +74,20 @@ Prototypes of all functions contained in this file (in order of occurance)
 
 int main ( void )
 {
-  node *pHead;
-  list_element_t data[10];
-  
   // Sign on
   cout << "C++ Examples Simple Linked List Class" << endl; 
 
-  for (int i=0; i < 10; i++) {
-    data[i].element = i;
-  }
 
   /*
    * create a new list
    */ 
-  pHead = new node;
+  linked_list FirstList;
 
   /*
-   * add some items to the list
+   * Add an element
    */
-  pHead->list_add_element(data);
-  pHead->list_add_element(data);  
-  pHead->list_add_element(data);
-  pHead->list_dump(pHead);
+  FirstList.list_add_element(10);
+  
   //  poortool_init();
 }
 

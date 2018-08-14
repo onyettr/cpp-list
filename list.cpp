@@ -12,8 +12,7 @@
  * NAME: Richard Onyett 
  * EMAIL: 
  *
- * PURPOSE: Simple Stack Class implementation
- *
+ * PURPOSE: Simple C++ linked list implementation
  * 
  * $Revision:$
  * $History: $
@@ -72,12 +71,11 @@ Exported Global variables
 Prototypes of all functions contained in this file (in order of occurance)
 ******************************************************************************
 */
-// Constructor time
 
 /**
- * @function  node::node
+ * @function  linked_list::linked_list(void) {
  *
- * @brief     node ctor
+ * @brief     linked_list constructor
  *
  * @param[in] none
  *
@@ -85,20 +83,20 @@ Prototypes of all functions contained in this file (in order of occurance)
  *
  * @note      ctor
  */
-node::node(void) {
+linked_list::linked_list(void) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: Basic Constructor called"  << endl;  
 #endif
 
-  node_prev = NULL;
-  node_next = NULL;
-  node_count= 0;
+  pHead = NULL;
+  pTail = NULL;
+  list_count= 0;
 }
 
 /**
- * @function  node::~node
+ * @function  linked_list::~linked_list() {
  *
- * @brief     node dtor
+ * @brief     linked_list destructor
  *
  * @param[in] none
  *
@@ -106,12 +104,55 @@ node::node(void) {
  *
  * @note      dtor
  */
-node::~node() {
+linked_list::~linked_list() {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: Basic Destructor called "  << endl;  
 #endif
 }
 
+
+/**
+ * @function  void node::list_add_element(list_element_t *lp)
+ *
+ * @brief     Add a new list element
+ *
+ * @param[in] list_element_t *lp    Pointer to new list element
+ *
+ * @return    none
+ *
+ * @note
+ */
+void linked_list::list_add_element (int value) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_add_element called "  << endl;  
+#endif
+  list_element_t *Temp;
+
+  /*
+   * Create a new element for the list
+   */
+  Temp = new list_element_t;
+  Temp->element = value;
+  Temp->pNext = NULL;
+
+  cout << "<" << this << ">TRACE: list_add_element Created new " << Temp << endl;
+  
+  if (pHead == NULL) {
+    /*
+     * We are the first
+     */
+    pHead = Temp;
+    pTail = Temp;
+  } else {
+    pTail->pNext = Temp;
+    pTail = pTail->pNext;
+  }
+  
+  cout << "<" << this << ">TRACE: list_add_element Head " << pHead << endl;  
+  cout << "<" << this << ">TRACE: list_add_element Tail " << pTail << endl;
+}
+
+#if 0
 /**
  * @function  node::getNodeCount
  *
@@ -143,27 +184,6 @@ void node::setNodecount (int count) {
 }
 
 /**
- * @function  void node::list_add_element(list_element_t *lp)
- *
- * @brief     Add a new list element
- *
- * @param[in] list_element_t *lp    Pointer to new list element
- *
- * @return    none
- *
- * @note
- */
-void node::list_add_element (list_element_t *lp) {
-  int count = 0;
-#if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_add_element called "  << endl;  
-#endif
-  count = getNodecount();
-  count = count + 1;
-  setNodecount(count);
-}
-
-/**
  * @function  void node::list_dump(node *pHead)
  *
  * @brief     Dump a given list
@@ -186,3 +206,4 @@ void node::list_dump        ( node *pHead ) {
   }
 }
 
+#endif

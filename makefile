@@ -1,8 +1,8 @@
-CC    =g++
-LINK  =g++
-DEBUG =-g
-CFLAGS=-c -Wall -pedantic -DDEBUG_TRACE
-LFLAGS=
+CC		=g++
+LINK  		=g++
+DEBUG 		=-g
+CFLAGS		=-c -Wall -pedantic -DDEBUG_TRACE
+LFLAGS		=
 
 CHECK		= cppcheck
 CHECK_FLAGS	= --language=c++ --enable=all
