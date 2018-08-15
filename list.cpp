@@ -110,7 +110,6 @@ linked_list::~linked_list() {
 #endif
 }
 
-
 /**
  * @function  void node::list_add_element(list_element_t *lp)
  *
@@ -154,6 +153,61 @@ void linked_list::list_add_element (int value) {
 }
 
 /**
+ * @function  void node::list_add_element(list_element_t *lp)
+ *
+ * @brief     Add a new list element
+ *
+ * @param[in] list_element_t *lp    Pointer to new list element
+ *
+ * @return    none
+ *
+ * @note
+ */
+void linked_list::list_add_at_front (int value) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_add_to_front called "  << endl;  
+#endif
+  list_element_t *Temp;
+
+  /*
+   * Create a new element for the list
+   */
+  Temp = new list_element_t;
+  Temp->element = value;
+  Temp->pNext = pHead;            /* This element now points to the head */
+  pHead = Temp;                   /* This moves the head to point to the new element, making it at the front */
+  
+  cout << "<" << this << ">TRACE: list_add_to_front Created new " << Temp << endl;
+
+  list_count++;
+  
+  cout << "<" << this << ">TRACE: list_add_to_front Head " << pHead << endl;  
+  cout << "<" << this << ">TRACE: list_add_to_front Tail " << pTail << endl;
+}
+
+/**
+ * @function  void node::list_delete_element(list_element_t *lp)
+ *
+ * @brief     Remove a list element
+ *
+ * @param[in] list_element_t *lp    Pointer to list element to delete
+ *
+ * @return    none
+ *
+ * @note
+ */
+void linked_list::list_delete_element (list_element_t *pElement) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_delete_element called "  << endl;  
+#endif
+
+  list_count--;
+  
+  cout << "<" << this << ">TRACE: list_delete_element Head " << pHead << endl;  
+  cout << "<" << this << ">TRACE: list_delete_element Tail " << pTail << endl;
+}
+
+/**
  * @function  void linked_list::list_dump        (void) {
  *
  * @brief     Print out the linked list
@@ -164,13 +218,13 @@ void linked_list::list_add_element (int value) {
  *
  * @note
  */
-void linked_list::list_dump        (void) {
+void linked_list::list_dump (list_element_t *listHead) {
   list_element_t *pCurrent;
   
-  if ( pHead != NULL ) {
+  if ( listHead != NULL ) {
     cout << "Number of nodes = " << list_count << endl;
 
-    pCurrent = pHead;
+    pCurrent = listHead;
     while (pCurrent != NULL) {
       cout << "[" << pCurrent << "] ";
       cout << pCurrent->element << endl;

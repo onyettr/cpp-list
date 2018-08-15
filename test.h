@@ -62,6 +62,7 @@ Exported Global variables
 */
 
 int test_add(void);
+int test_del(void);
 
 #endif // __TEST_H__
 

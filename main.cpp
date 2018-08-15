@@ -79,6 +79,7 @@ int main ( void )
   cout << "C++ Examples Simple Linked List Class" << endl; 
 
   test_add();
+  test_del();
   
   //  poortool_init();
 }

@@ -86,7 +86,7 @@ int test_add ( void )
    */
   cout << "Test01 - add single element" << endl;
   addTest.list_add_element(10);
-  addTest.list_dump();  
+  addTest.list_dump(addTest.GetListHead());  
 
   cout << "Test01 - add more   elements" << endl;  
   addTest.list_add_element(20);
@@ -94,7 +94,11 @@ int test_add ( void )
   addTest.list_add_element(40);
   addTest.list_add_element(50);
   addTest.list_add_element(60);  
-  addTest.list_dump();
+  addTest.list_dump(addTest.GetListHead());
+
+  cout << "Test02 - add to front" << endl;  
+  addTest.list_add_at_front(111);
+  addTest.list_dump(addTest.GetListHead());
 
   return 0;
 }
