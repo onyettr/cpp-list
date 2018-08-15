@@ -108,6 +108,21 @@ linked_list::~linked_list() {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: Basic Destructor called "  << endl;  
 #endif
+  list_element_t *pNext;
+
+  pNext = GetListHead();
+  while (pNext) {
+    list_element_t *pNodeToDelete;
+
+    pNodeToDelete = pNext;
+    pNext = pNext->pNext;
+#if defined ( DEBUG_TRACE )
+    cout << "<" << this << ">TRACE: deleting "  << pNodeToDelete << endl;  
+#endif
+    
+    delete pNodeToDelete;
+    list_count--;
+  }
 }
 
 /**
