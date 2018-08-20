@@ -82,8 +82,10 @@ class linked_list {
     // Member functions
     void list_add_element (int value); // Add an element to the list
     void list_add_at_front(int value); // Add an element to the front of the list
-    void list_delete_element(list_element_t *pElement); // Delete element 
+    void list_delete_element(list_element_t *pElement); // Delete element
+    void list_sort        (list_element_t *pHead);      // Sort the list
     void list_dump        (list_element_t *pHead);      // Dump the contents of the linked list
+    int  list_size        (void);       // Size of the list
     list_element_t *GetListHead(void) { // Obtain the head of the list.
       return (list_element_t *)pHead;
     }

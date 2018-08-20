@@ -223,6 +223,43 @@ void linked_list::list_delete_element (list_element_t *pElement) {
 }
 
 /**
+ * @function  void node::list_sort(list_element_t *lp)
+ *
+ * @brief     Sort the list
+ *
+ * @param[in] list_element_t *lp    Pointer to new list element
+ *
+ * @return    none
+ *
+ * @note
+ */
+void linked_list::list_sort (list_element_t *pHead) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_sort called "  << endl;  
+#endif
+  
+}
+
+/**
+ * @function  int list::list_size(void)
+ *
+ * @brief     return the size of the list
+ *
+ * @param[in] none
+ *
+ * @return    Size of the list
+ *
+ * @note
+ */
+int linked_list::list_size (void) {
+#if defined ( DEBUG_TRACE_1 )
+  cout << "<" << this << ">TRACE: list_size called "  << endl;  
+#endif
+
+  return list_count;
+}
+
+/**
  * @function  void linked_list::list_dump        (void) {
  *
  * @brief     Print out the linked list

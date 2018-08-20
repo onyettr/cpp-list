@@ -10,7 +10,7 @@ CHECK_FLAGS	= --language=c++ --enable=all
 # -DDEBUG_TRACE	Will turn on deep trace per function
 # -DEXCEPTION	Will use the real exceptions with the 'try' that's in the test harness
 
-OBJS  = main.o list.o poortool.o test_add.o test_del.o
+OBJS  = main.o list.o poortool.o test_add.o test_del.o test_size.o
 
 all:	list.exe splint-me
 
@@ -25,6 +25,8 @@ test_add.o:	test_add.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_add.cpp -o test_add.o
 test_del.o:	test_del.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_del.cpp -o test_del.o
+test_size.o:	test_size.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_size.cpp -o test_size.o
 poortool.o:	poortool.c
 	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o poortool.o
 
@@ -37,6 +39,7 @@ clean:
 	rm -f main.o
 	rm -f test_add.o
 	rm -f test_del.o
+	rm -f test_size.o
 	rm -f poortool.o
 	rm -f core
 

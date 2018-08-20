@@ -1,2 +1,8 @@
+- Features
+  + list.isEmpty() from STL
+  + list.size()
+  + list.emplace(position, value)
+  + list.front() returns the first list value
+  + list.back()  returns the last  list value
 - Issues
   - Not sure if the node * having the element 

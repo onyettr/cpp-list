@@ -80,6 +80,7 @@ int main ( void )
 
   test_add();
   test_del();
+  test_size();
   
   //  poortool_init();
 }

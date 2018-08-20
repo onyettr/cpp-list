@@ -1,5 +1,5 @@
-/******************************************************************************
- * 
+/*
+ *****************************************************************************
  * MODULE: C++ Programming Examples
  *
  * $Header: $
@@ -9,11 +9,13 @@
  *
  * $Author: Onyettr $
  *
- * PURPOSE: 
+ * NAME: 
+ * EMAIL:
+ *
+ * PURPOSE: Test harness for linked list size
  * 
  * $Revision:$
  * $History: $
- *
  ***************************************************************************** 
  */
 
@@ -22,8 +24,10 @@
 Includes
 ******************************************************************************
 */
-#ifndef __TEST_H__
-#define __TEST_H__
+#include <iostream>
+#include "list.h"
+
+using namespace std;
 
 /*
 ******************************************************************************
@@ -61,9 +65,28 @@ Exported Global variables
 ******************************************************************************
 */
 
-int test_add(void);
-int test_del(void);
-int test_size(void);
+/*
+******************************************************************************
+Prototypes of all functions contained in this file (in order of occurance)
+******************************************************************************
+*/
 
-#endif // __TEST_H__
+int test_size ( void )
+{
+  // Sign on
+  cout << "Linked List Class Test - size" << endl; 
 
+  /*
+   * create a new list
+   */ 
+  linked_list SizeTest;
+  
+  cout << "Test01 - size on empty list " << SizeTest.list_size() << endl;
+
+  return 0;
+}
+
+//
+// Fin
+//
+  

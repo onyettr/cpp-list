@@ -95,11 +95,13 @@ int test_add ( void )
   addTest.list_add_element(50);
   addTest.list_add_element(60);  
   addTest.list_dump(addTest.GetListHead());
+  cout << "Test01a - size of list " << addTest.list_size() << endl;  
 
   cout << "Test02 - add to front" << endl;  
   addTest.list_add_at_front(111);
   addTest.list_dump(addTest.GetListHead());
-
+  cout << "Test02a - size of list " << addTest.list_size() << endl;
+  
   return 0;
 }
 
