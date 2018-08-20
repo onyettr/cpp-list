@@ -85,7 +85,7 @@ class linked_list {
     void list_delete_element(list_element_t *pElement); // Delete element 
     void list_dump        (list_element_t *pHead);      // Dump the contents of the linked list
     list_element_t *GetListHead(void) { // Obtain the head of the list.
-      return (list_element_t *)pHead;
+      return pHead;
     }
 };
 
