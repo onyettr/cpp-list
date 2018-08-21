@@ -1,6 +1,6 @@
 - Features
   + list.isEmpty() from STL
-  + list.size()
+  + list.size() -> DONE
   + list.emplace(position, value)
   + list.front() returns the first list value
   + list.back()  returns the last  list value

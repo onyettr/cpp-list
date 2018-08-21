@@ -86,6 +86,7 @@ class linked_list {
     void list_sort        (list_element_t *pHead);      // Sort the list
     void list_dump        (list_element_t *pHead);      // Dump the contents of the linked list
     int  list_size        (void);       // Size of the list
+    bool list_empty       (void);       // is the list empty?
     list_element_t *GetListHead(void) { // Obtain the head of the list.
       return pHead;
     }

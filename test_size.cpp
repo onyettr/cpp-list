@@ -82,7 +82,12 @@ int test_size ( void )
   linked_list SizeTest;
   
   cout << "Test01 - size on empty list " << SizeTest.list_size() << endl;
+  cout << "Test02 - list empty         " << (SizeTest.list_empty() == true ? "TRUE" : "FALSE") << endl;  
 
+  SizeTest.list_add_element(100);
+  cout << "Test03 - size on list " << SizeTest.list_size() << endl;
+  cout << "Test04 - list empty   " << (SizeTest.list_empty() == true ? "TRUE" : "FALSE") << endl;
+  
   return 0;
 }
 

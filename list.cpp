@@ -126,11 +126,11 @@ linked_list::~linked_list() {
 }
 
 /**
- * @function  void node::list_add_element(list_element_t *lp)
+ * @function  void node::list_add_element(int value)
  *
  * @brief     Add a new list element
  *
- * @param[in] list_element_t *lp    Pointer to new list element
+ * @param[in] int   element to add
  *
  * @return    none
  *
@@ -257,6 +257,28 @@ int linked_list::list_size (void) {
 #endif
 
   return list_count;
+}
+
+/**
+ * @function  bool list::list_empty(void)
+ *
+ * @brief     Is the list empty?
+ *
+ * @param[in] none
+ *
+ * @return    bool TRUE = Empty, FALSE = Not empty
+ *
+ * @note
+ */
+bool linked_list::list_empty (void) {
+#if defined ( DEBUG_TRACE_1 )
+  cout << "<" << this << ">TRACE: list_empty called "  << endl;  
+#endif
+
+  if (list_count == 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
