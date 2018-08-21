@@ -168,11 +168,11 @@ void linked_list::list_add_element (int value) {
 }
 
 /**
- * @function  void node::list_add_element(list_element_t *lp)
+ * @function  void node::list_add_at_front(int value)
  *
- * @brief     Add a new list element
+ * @brief     Add a new list value to the front of the list
  *
- * @param[in] list_element_t *lp    Pointer to new list element
+ * @param[in] int value 
  *
  * @return    none
  *
@@ -223,11 +223,11 @@ void linked_list::list_delete_element (list_element_t *pElement) {
 }
 
 /**
- * @function  void node::list_sort(list_element_t *lp)
+ * @function  void node::list_sort(list_element_t *pHead)
  *
  * @brief     Sort the list
  *
- * @param[in] list_element_t *lp    Pointer to new list element
+ * @param[in] list_element_t *pHead    Pointer to list
  *
  * @return    none
  *
@@ -282,9 +282,9 @@ bool linked_list::list_empty (void) {
 }
 
 /**
- * @function  void linked_list::list_dump        (void) {
+ * @function  void linked_list::list_dump(void) 
  *
- * @brief     Print out the linked list
+ * @brief     Print out the single linked list
  *
  * @param[in] none
  *
@@ -310,59 +310,3 @@ void linked_list::list_dump (list_element_t *listHead) {
     cout << "Error: No elements in linked list" << endl;
   }
 }
-
-#if 0
-/**
- * @function  node::getNodeCount
- *
- * @brief     get the number of nodes created
- *
- * @param[in] none
- *
- * @return    int     number of created nodes
- *
- * @note
- */
-int node::getNodecount (void) {
-  return node_count;
-}
-
-/**
- * @function  node::setNodeCount
- *
- * @brief     Set the number of nodes to create
- *
- * @param[in] None
- *
- * @return    int
- *
- * @note
- */
-void node::setNodecount (int count) {
-  node_count = count;
-}
-
-/**
- * @function  void node::list_dump(node *pHead)
- *
- * @brief     Dump a given list
- *
- * @param[in] node *pHead    Pointer to head of the given list
- *
- * @return    none
- *
- * @note
- */
-void node::list_dump        ( node *pHead ) {
-  if ( pHead != NULL ) {
-    cout << "Number of nodes = " << getNodecount() << endl;
-    for (int i=0; i < 10; i++) {
-      cout << "Node: " << i << " Data " << endl;
-    }
-  }
-  else {
-    cout << "Error: No node head found" << endl;
-  }
-}
-
-#endif

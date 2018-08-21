@@ -1,22 +1,7 @@
-/*
- *****************************************************************************
- * MODULE: C++ Programming Examples
+/**
  *
- * $Header: $
- * $Archive:$
- * 
- * $Workfile: $
+ * @brief  Test harness for single linked list add operations
  *
- * $Author: Onyettr $
- *
- * NAME: 
- * EMAIL:
- *
- * PURPOSE: Test harness for linked list add
- * 
- * $Revision:$
- * $History: $
- ***************************************************************************** 
  */
 
 /*

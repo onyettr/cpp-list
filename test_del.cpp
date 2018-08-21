@@ -1,22 +1,7 @@
-/*
- *****************************************************************************
- * MODULE: C++ Programming Examples
+/**
  *
- * $Header: $
- * $Archive:$
+ * @brief Test harness for single linked list delete operation
  * 
- * $Workfile: $
- *
- * $Author: Onyettr $
- *
- * NAME: 
- * EMAIL:
- *
- * PURPOSE: Test harness for linked list delete
- * 
- * $Revision:$
- * $History: $
- ***************************************************************************** 
  */
 
 /*

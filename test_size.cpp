@@ -1,22 +1,7 @@
-/*
- *****************************************************************************
+/**
  * MODULE: C++ Programming Examples
  *
- * $Header: $
- * $Archive:$
- * 
- * $Workfile: $
- *
- * $Author: Onyettr $
- *
- * NAME: 
- * EMAIL:
- *
- * PURPOSE: Test harness for linked list size
- * 
- * $Revision:$
- * $History: $
- ***************************************************************************** 
+ * @brief Test harness for single linked list size operations
  */
 
 /*

@@ -70,14 +70,15 @@ struct list_element_t {
   list_element_t *pNext;
 };
 
+/*! Single Linked List class */
 class linked_list {
    private:
      list_element_t *pHead;            // Head of the Linked List
      list_element_t *pTail;            // Tail of the Linked List
      int list_count;                   // Number of nodes or Elements in the list
    public:
-     ~linked_list();                   // dtor
-     linked_list();                    // ctor
+     ~linked_list();                   /*! linked list descrtuctor */
+     linked_list();                    /*! linked list constructor */
 
     // Member functions
     void list_add_element (int value); // Add an element to the list
