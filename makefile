@@ -1,46 +1,85 @@
-CC		=g++
-LINK  		=g++
-DEBUG 		=-g
-CFLAGS		=-c -Wall -pedantic -DDEBUG_TRACE
+#*******************************************************************************
+# File name        : makeile
+# File description : C++ Single Link list builda
+# Author           : ronyett
+#*******************************************************************************
+
+SRC_DIR		= 	.
+OBJECT_DIR	= 	$(SRC_DIR)/object
+MAKE_DIR_CMD	= 	mkdir $(OBJECT_DIR)
+
+CC		=	g++
+LINK  		=	g++
+AR		=	ar
+ARFLAGS		=       rcs
+DEBUG 		=	-g
+CFLAGS		=	-c -Wall -pedantic -DDEBUG_TRACE
 LFLAGS		=
 
-CHECK		= cppcheck
-CHECK_FLAGS	= --language=c++ --enable=all
+CHECK		= 	cppcheck
+CHECK_FLAGS	= 	--language=c++ --enable=all
 
 # -DDEBUG_TRACE	Will turn on deep trace per function
 # -DEXCEPTION	Will use the real exceptions with the 'try' that's in the test harness
 
-OBJS  = main.o list.o poortool.o test_add.o test_del.o test_size.o
+# Build objects
+OBJS  = $(OBJECT_DIR)/main.o 	 \
+	$(OBJECT_DIR)/list.o 	 \
+	$(OBJECT_DIR)/poortool.o \
+	$(OBJECT_DIR)/test_add.o \
+	$(OBJECT_DIR)/test_del.o \
+	$(OBJECT_DIR)/test_size.o
+LIBS  = liblist.a
 
-all:	list.exe splint-me
+#*******************************************************************************
+# Build targets:
+# all	Creates object directory, builds executable and runs checker
+# lib	Build only the list library, no test harness
+#*******************************************************************************
+all:	$(OBJECT_DIR) list.exe splint-me
 
-list.exe:	$(OBJS)
-	$(LINK) $(LFLAGS) $(OBJS) -o list.exe
-
-main.o:		main.cpp
-	$(CC) $(CFLAGS) $(DEBUG) main.cpp -o main.o
-list.o:	list.cpp list.h
-	$(CC) $(CFLAGS) $(DEBUG) list.cpp -o list.o
-test_add.o:	test_add.cpp
-	$(CC) $(CFLAGS) $(DEBUG) test_add.cpp -o test_add.o
-test_del.o:	test_del.cpp
-	$(CC) $(CFLAGS) $(DEBUG) test_del.cpp -o test_del.o
-test_size.o:	test_size.cpp
-	$(CC) $(CFLAGS) $(DEBUG) test_size.cpp -o test_size.o
-poortool.o:	poortool.c
-	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o poortool.o
+lib:	$(LIBS)
 
 splint-me:
 	$(CHECK) $(CHECK_FLAGS) .
 
+$(OBJECT_DIR):
+	-$(MAKE_DIR_CMD)
+
+list.exe:	$(OBJS) $(LIBS)
+	$(LINK) $(LFLAGS) $(OBJS) -L. -llist -o list.exe
+
+$(OBJECT_DIR)/main.o:		main.cpp
+	$(CC) $(CFLAGS) $(DEBUG) main.cpp -o $(OBJECT_DIR)/main.o
+
+liblist.a:	$(OBJECT_DIR)/list.o
+	$(AR) $(ARFLAGS) liblist.a $(OBJECT_DIR)/list.o 
+
+$(OBJECT_DIR)/list.o:	list.cpp list.h
+	$(CC) $(CFLAGS) $(DEBUG) list.cpp -o $(OBJECT_DIR)/list.o
+
+$(OBJECT_DIR)/test_add.o:	test_add.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_add.cpp -o $(OBJECT_DIR)/test_add.o
+
+$(OBJECT_DIR)/test_del.o:	test_del.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_del.cpp -o $(OBJECT_DIR)/test_del.o
+
+$(OBJECT_DIR)/test_size.o:	test_size.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_size.cpp -o $(OBJECT_DIR)/test_size.o
+
+$(OBJECT_DIR)/poortool.o:	poortool.c
+	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o $(OBJECT_DIR)/poortool.o
+
+
 clean:
 	rm -f list.exe
-	rm -f list.o
-	rm -f main.o
-	rm -f test_add.o
-	rm -f test_del.o
-	rm -f test_size.o
-	rm -f poortool.o
+	rm -f $(OBJECT_DIR)/list.o
+	rm -f liblist.a
+	rm -f $(OBJECT_DIR)/main.o
+	rm -f $(OBJECT_DIR)/test_add.o
+	rm -f $(OBJECT_DIR)/test_del.o
+	rm -f $(OBJECT_DIR)/test_size.o
+	rm -f $(OBJECT_DIR)/poortool.o
 	rm -f core
 
 #
