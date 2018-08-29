@@ -1,19 +1,11 @@
-/******************************************************************************
- * 
+/**
+ *****************************************************************************
  * MODULE: C++ Programming Examples
  *
- * $Header: $
- * $Archive:$
- * 
- * $Workfile: $
- *
- * $Author: Onyettr $
+ * @author onyettr 
+ * @file   list.h
  *
  * PURPOSE: Header file for simple linked list
- * 
- * $Revision:$
- * $History: $
- *
  ***************************************************************************** 
  */
 
@@ -84,6 +76,7 @@ class linked_list {
     void list_add_element (int value); // Add an element to the list
     void list_add_at_front(int value); // Add an element to the front of the list
     void list_delete_element(list_element_t *pElement); // Delete element
+    int  list_front       (void);      // return first list element
     void list_sort        (list_element_t *pHead);      // Sort the list
     void list_dump        (list_element_t *pHead);      // Dump the contents of the linked list
     int  list_size        (void);       // Size of the list

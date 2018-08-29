@@ -1,8 +1,9 @@
 - Features
-  + list.isEmpty() from STL
+  + list.isEmpty() from STL -> DONE
   + list.size() -> DONE
   + list.emplace(position, value)
-  + list.front() returns the first list value
+  + list.front() returns the first list value -> DONE
   + list.back()  returns the last  list value
+  + Convert to Templates
 - Issues
   - Not sure if the node * having the element 

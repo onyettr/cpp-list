@@ -1,21 +1,9 @@
-/*
+/**
  *****************************************************************************
  * MODULE: C++ Programming Examples
  *
- * $Header: $
- * $Archive:$
- * 
- * $Workfile: $
+ * @author: Onyettr
  *
- * $Author: Onyettr $
- *
- * NAME: 
- * EMAIL:
- *
- * PURPOSE:
- * 
- * $Revision:$
- * $History: $
  ***************************************************************************** 
  */
 
@@ -81,6 +69,7 @@ int main ( void )
   test_add();
   test_del();
   test_size();
+  test_front();
   
   //  poortool_init();
 }

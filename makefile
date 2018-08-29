@@ -23,12 +23,13 @@ CHECK_FLAGS	= 	--language=c++ --enable=all
 # -DEXCEPTION	Will use the real exceptions with the 'try' that's in the test harness
 
 # Build objects
-OBJS  = $(OBJECT_DIR)/main.o 	 \
-	$(OBJECT_DIR)/list.o 	 \
-	$(OBJECT_DIR)/poortool.o \
-	$(OBJECT_DIR)/test_add.o \
-	$(OBJECT_DIR)/test_del.o \
-	$(OBJECT_DIR)/test_size.o
+OBJS  = $(OBJECT_DIR)/main.o 	 	\
+	$(OBJECT_DIR)/list.o 	 	\
+	$(OBJECT_DIR)/poortool.o 	\
+	$(OBJECT_DIR)/test_add.o 	\
+	$(OBJECT_DIR)/test_del.o 	\
+	$(OBJECT_DIR)/test_size.o	\
+	$(OBJECT_DIR)/test_front.o
 LIBS  = liblist.a
 
 #*******************************************************************************
@@ -67,6 +68,9 @@ $(OBJECT_DIR)/test_del.o:	test_del.cpp
 $(OBJECT_DIR)/test_size.o:	test_size.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_size.cpp -o $(OBJECT_DIR)/test_size.o
 
+$(OBJECT_DIR)/test_front.o:	test_front.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_front.cpp -o $(OBJECT_DIR)/test_front.o
+
 $(OBJECT_DIR)/poortool.o:	poortool.c
 	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o $(OBJECT_DIR)/poortool.o
 
@@ -79,6 +83,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_add.o
 	rm -f $(OBJECT_DIR)/test_del.o
 	rm -f $(OBJECT_DIR)/test_size.o
+	rm -f $(OBJECT_DIR)/test_front.o
 	rm -f $(OBJECT_DIR)/poortool.o
 	rm -f core
 

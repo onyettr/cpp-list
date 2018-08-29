@@ -282,6 +282,33 @@ bool linked_list::list_empty (void) {
 }
 
 /**
+ * @function  int list::list_front(void)
+ *
+ * @brief     return front list value
+ *
+ * @param[in] none
+ *
+ * @return    <T> (int)   Front list value
+ *
+ * @note
+ */
+int linked_list::list_front (void) {
+  int value = 0;  
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_front called "  << endl;  
+#endif
+
+  if (list_count == 0) {
+    cout << "Error: No elements in linked list" << endl;
+  }
+  else {
+    value = pHead->element;
+  }
+
+  return value;
+}
+
+/**
  * @function  void linked_list::list_dump(void) 
  *
  * @brief     Print out the single linked list
