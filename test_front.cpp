@@ -79,12 +79,14 @@ int test_front (void)
   cout << "Return (200) = " << addTest.list_front() << endl;  
 
   cout << "Test03 - return front, list has two elements" << endl;  
-  addTest.list_add_at_front(111);
+  addTest.list_add_element(300);
   cout << "Return (200) = " << addTest.list_front() << endl;  
 
   cout << "Test04 - return front, list has new front element" << endl;  
   addTest.list_add_at_front(111);
   cout << "Return (111) = " << addTest.list_front() << endl;  
+
+  addTest.list_dump(addTest.GetListHead());
   
   return 0;
 }
