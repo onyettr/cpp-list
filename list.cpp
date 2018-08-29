@@ -309,6 +309,33 @@ int linked_list::list_front (void) {
 }
 
 /**
+ * @function  int list::list_back(void)
+ *
+ * @brief     return back list value
+ *
+ * @param[in] none
+ *
+ * @return    <T> (int)   back list value
+ *
+ * @note
+ */
+int linked_list::list_back (void) {
+  int value = 0;  
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_back called "  << endl;  
+#endif
+
+  if (list_count == 0) {
+    cout << "Error: No elements in linked list" << endl;
+  }
+  else {
+    value = pTail->element;
+  }
+
+  return value;
+}
+
+/**
  * @function  void linked_list::list_dump(void) 
  *
  * @brief     Print out the single linked list
