@@ -121,6 +121,7 @@ linked_list::~linked_list() {
 #endif
     
     delete pNodeToDelete;
+
     list_count--;
   }
 }
@@ -168,7 +169,7 @@ void linked_list::list_add_element (int value) {
 }
 
 /**
- * @function  void node::list_emplace(int position, int value)
+ * @function  void node::list_add_position(int position, int value)
  *
  * @brief     Add a new list element at Position in the list
  *
@@ -179,7 +180,7 @@ void linked_list::list_add_element (int value) {
  *
  * @note      This will insert at Position. 
  */
-void linked_list::list_emplace (int position, int value) {
+void linked_list::list_add_position(int position, int value) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_emplace called "  << endl;  
 #endif
@@ -302,17 +303,17 @@ void linked_list::list_delete_element (list_element_t *pElement) {
 }
 
 /**
- * @function  void node::list_sort(list_element_t *pHead)
+ * @function  void node::list_sort(void)
  *
  * @brief     Sort the list
  *
- * @param[in] list_element_t *pHead    Pointer to list
+ * @param[in] none
  *
  * @return    none
  *
  * @note
  */
-void linked_list::list_sort (list_element_t *pHead) {
+void linked_list::list_sort (void) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_sort called "  << endl;  
 #endif
@@ -425,16 +426,17 @@ int linked_list::list_get_back (void) {
  *
  * @note
  */
-void linked_list::list_dump (list_element_t *listHead) {
+void linked_list::list_dump (void) {
   list_element_t *pCurrent;
   
-  if ( listHead != NULL ) {
+  if ( !list_empty() ) {
     cout << "Number of nodes = " << list_count << endl;
 
-    pCurrent = listHead;
+    pCurrent = GetListHead();
+    cout << "   Address   \tValue\t   pNext" << endl;
     while (pCurrent != NULL) {
-      cout << "[" << pCurrent << "] ";
-      cout << pCurrent->element << endl;
+      cout << "[" << pCurrent << "]\t";
+      cout << pCurrent->element << "\t[" << pCurrent->pNext << "]" << endl;
 
       pCurrent = pCurrent->pNext;
     }

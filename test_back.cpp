@@ -86,7 +86,7 @@ int test_back (void)
   addTest.list_add_at_back(111);
   cout << "Return (111) = " << addTest.list_get_back() << endl;  
 
-  addTest.list_dump(addTest.GetListHead());
+  addTest.list_dump();
   
   return 0;
 }

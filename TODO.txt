@@ -4,9 +4,12 @@
 ** DONE list_add_to_back()
 ** TODO list.sort() to be implemented
 ** DONE list.emplace(position, value)
+** TODO list_delete_front()
+** TODO list_delete_back ()
 ** TODO list.nremove(position)
 ** TODO list_dump - why does it need the pHead? Its already private?
 ** DONE list.front() returns the first list value
+** TODO test harness as library
 ** DONE list.back()  returns the last  list value
 ** TODO Convert to Templates
 

@@ -71,7 +71,7 @@ int test_del ( void )
    */
   cout << "Test01 - del single element" << endl;
   addTest.list_add_element(202);
-  addTest.list_dump(addTest.GetListHead());  
+  addTest.list_dump();  
   addTest.list_delete_element(addTest.GetListHead()->pNext);
   
   return 0;

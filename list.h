@@ -65,30 +65,34 @@ struct list_element_t {
 /*! Single Linked List class */
 class linked_list {
    private:
-     list_element_t *pHead;            // Head of the Linked List
-     list_element_t *pTail;            // Tail of the Linked List
-     int list_count;                   // Number of nodes or Elements in the list
+     list_element_t *pHead;             // Head of the Linked List
+     list_element_t *pTail;             // Tail of the Linked List
+     int list_count;                    // Number of nodes or Elements in the list
    public:
-     ~linked_list();                   /*! linked list descrtuctor */
-     linked_list();                    /*! linked list constructor */
+     ~linked_list();                    /*! linked list descrtuctor */
+     linked_list();                     /*! linked list constructor */
 
     // Member functions
-    void list_add_element (int value); // Add an element to the list
-    void list_add_at_front(int value); // Add an element to the front of the list
-    void list_add_at_back (int value); // Add an element to the back  of the list
-    void list_emplace     (int position, int value); // Add an element at position
-    void list_delete_element(list_element_t *pElement); // Delete element
-    int  list_get_front   (void);      // return first list element
-    int  list_get_back    (void);      // return tail list element  
-    void list_sort        (list_element_t *pHead);      // Sort the list
-    void list_dump        (list_element_t *pHead);      // Dump the contents of the linked list
-    int  list_size        (void);       // Size of the list
+    void list_add_element (int value);  // Add an element to the list, increases list size by 1
+    void list_add_at_front(int value);  // Add an element to the front of the list, increases list size by 1
+    void list_add_at_back (int value);  // Add an element to the back  of the list, increases list size by 1
+    void list_add_position(int position, int value); // Add an element at position,increases list size by 1
+    void list_delete_element(list_element_t *pElement); // Delete element, decreases list size by 1
+    int  list_get_front   (void);       // return value of first list element
+    int  list_get_back    (void);       // return value of tail list element  
+    void list_sort        (void);       // Sort the list
+    void list_dump        (void);       // Show the contents of the linked list
+    int  list_size        (void);       // Number of elements in the list
     bool list_empty       (void);       // is the list empty?
 #if 0    // TODO list
-
+    void list_delete_front(void);       // Delete first element of list, decreases list size by 1
+    void list_delete_back (void);       // Delete last  element of list, decreases list size by 1
 #endif  
-    list_element_t *GetListHead(void) { // Obtain the head of the list.
+    list_element_t *GetListHead(void) { // Obtain Head iterator pointing to first element
       return pHead;
+    }
+    list_element_t *GetListTail(void) { // Obtain Tail iterator pointing to last element
+      return pTail;
     }
 };
 
