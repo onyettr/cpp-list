@@ -1,22 +1,10 @@
-/*
- *****************************************************************************
+/**
  * MODULE: C++ Programming Examples
  *
- * $Header: $
- * $Archive:$
- * 
- * $Workfile: $
- *
- * $Author: Onyettr $
- *
- * NAME: Richard Onyett 
- * EMAIL: 
- *
- * PURPOSE: Simple C++ linked list implementation
- * 
- * $Revision:$
- * $History: $
- ***************************************************************************** 
+ * @brief  Simple C++ linked list implementation
+ * @author onyettr 
+ * @file   list.cpp
+ * @version
  */
 
 /*
@@ -73,11 +61,11 @@ Prototypes of all functions contained in this file (in order of occurance)
 */
 
 /**
- * @function  linked_list::linked_list(void) {
+ * @fn        linked_list::linked_list(void)
  *
  * @brief     linked_list constructor
  *
- * @param[in] none
+ * @param     
  *
  * @return    None
  *
@@ -94,7 +82,7 @@ linked_list::linked_list(void) {
 }
 
 /**
- * @function  linked_list::~linked_list() {
+ * @function  linked_list::~linked_list()
  *
  * @brief     linked_list destructor
  *

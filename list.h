@@ -1,12 +1,10 @@
 /**
- *****************************************************************************
  * MODULE: C++ Programming Examples
  *
+ * @brief  Header file for simple linked list
  * @author onyettr 
  * @file   list.h
- *
- * PURPOSE: Header file for simple linked list
- ***************************************************************************** 
+ * @version
  */
 
 /*
@@ -62,15 +60,14 @@ struct list_element_t {
   list_element_t *pNext;
 };
 
-/*! Single Linked List class */
+/**
+ * @brief Single Linked List class 
+ * @class linked_list
+ */
 class linked_list {
-   private:
-     list_element_t *pHead;             // Head of the Linked List
-     list_element_t *pTail;             // Tail of the Linked List
-     int list_count;                    // Number of nodes or Elements in the list
    public:
-     ~linked_list();                    /*! linked list descrtuctor */
      linked_list();                     /*! linked list constructor */
+     ~linked_list();                    /*! linked list descrtuctor */  
 
     // Member functions
     void list_add_element (int value);  // Add an element to the list, increases list size by 1
@@ -94,6 +91,11 @@ class linked_list {
     list_element_t *GetListTail(void) { // Obtain Tail iterator pointing to last element
       return pTail;
     }
+   private:
+     list_element_t *pHead;             // Head of the Linked List
+     list_element_t *pTail;             // Tail of the Linked List
+     int list_count;                    // Number of nodes or Elements in the list
+  
 };
 
 #endif // __LIST_H__
