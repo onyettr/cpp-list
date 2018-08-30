@@ -86,6 +86,11 @@ int test_add ( void )
   addTest.list_add_at_front(111);
   addTest.list_dump(addTest.GetListHead());
   cout << "Test02a - size of list " << addTest.list_size() << endl;
+
+  cout << "Test03 - add to back" << endl;  
+  addTest.list_add_at_back(222);
+  addTest.list_dump(addTest.GetListHead());
+  cout << "Test03a - size of list " << addTest.list_size() << endl;
   
   return 0;
 }

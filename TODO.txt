@@ -1,9 +1,14 @@
-- Features
-  + list.isEmpty() from STL -> DONE
-  + list.size() -> DONE
-  + list.emplace(position, value)
-  + list.front() returns the first list value -> DONE
-  + list.back()  returns the last  list value
-  + Convert to Templates
-- Issues
-  - Not sure if the node * having the element 
+* cpp-list tasks
+** DONE list.isEmpty() from STL
+** DONE list.size()
+** DONE list_add_to_back()
+** TODO list.sort() to be implemented
+** TODO list.emplace(position, value)
+** TODO list.nremove(position)
+** TODO list_dump - why does it need the pHead? Its already private?
+** DONE list.front() returns the first list value
+** DONE list.back()  returns the last  list value
+** TODO Convert to Templates
+
+* Issues
+** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)

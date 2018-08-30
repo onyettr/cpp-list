@@ -201,6 +201,40 @@ void linked_list::list_add_at_front (int value) {
 }
 
 /**
+ * @function  void node::list_add_at_back(int value)
+ *
+ * @brief     Add a new list value to the back of the list
+ *
+ * @param[in] int value 
+ *
+ * @return    none
+ *
+ * @note
+ */
+void linked_list::list_add_at_back (int value) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_add_to_back called "  << endl;  
+#endif
+  list_element_t *Temp;
+
+  /*
+   * Create a new element for the list
+   */
+  Temp = new list_element_t;
+  Temp->element = value;
+  Temp->pNext = NULL;             /* This element points at nothing as its now at the back                  */
+  pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
+  pTail = Temp;                   /* This moves the Tail to point to the new element, making it at the back */
+  
+  cout << "<" << this << ">TRACE: list_add_to_back Created new " << Temp << endl;
+
+  list_count++;
+  
+  cout << "<" << this << ">TRACE: list_add_to_front Head " << pHead << endl;  
+  cout << "<" << this << ">TRACE: list_add_to_front Tail " << pTail << endl;
+}
+
+/**
  * @function  void node::list_delete_element(list_element_t *lp)
  *
  * @brief     Remove a list element
@@ -282,7 +316,7 @@ bool linked_list::list_empty (void) {
 }
 
 /**
- * @function  int list::list_front(void)
+ * @function  int list::list_get_front(void)
  *
  * @brief     return front list value
  *
@@ -292,10 +326,10 @@ bool linked_list::list_empty (void) {
  *
  * @note
  */
-int linked_list::list_front (void) {
+int linked_list::list_get_front (void) {
   int value = 0;  
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_front called "  << endl;  
+  cout << "<" << this << ">TRACE: list_get_front called "  << endl;  
 #endif
 
   if (list_count == 0) {
@@ -309,9 +343,9 @@ int linked_list::list_front (void) {
 }
 
 /**
- * @function  int list::list_back(void)
+ * @function  int list::list_get_back(void)
  *
- * @brief     return back list value
+ * @brief     return the back/tail list value
  *
  * @param[in] none
  *
@@ -319,10 +353,10 @@ int linked_list::list_front (void) {
  *
  * @note
  */
-int linked_list::list_back (void) {
+int linked_list::list_get_back (void) {
   int value = 0;  
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_back called "  << endl;  
+  cout << "<" << this << ">TRACE: list_get_back called "  << endl;  
 #endif
 
   if (list_count == 0) {
