@@ -65,7 +65,8 @@ int test_add ( void )
    * create a new list
    */ 
   linked_list addTest;
-  
+  linked_list emplaceTest;
+    
   /*
    * Add an element
    */
@@ -91,6 +92,18 @@ int test_add ( void )
   addTest.list_add_at_back(222);
   addTest.list_dump(addTest.GetListHead());
   cout << "Test03a - size of list " << addTest.list_size() << endl;
+
+  cout << "Test04 - emplace" << endl;  
+  emplaceTest.list_add_element(1);
+  emplaceTest.list_add_element(2);
+  emplaceTest.list_add_element(3);
+  emplaceTest.list_add_element(4);  
+  emplaceTest.list_dump(emplaceTest.GetListHead());
+  cout << "Test04a - size of list " << emplaceTest.list_size() << endl;
+
+  emplaceTest.list_emplace(2, 5);
+  emplaceTest.list_dump(emplaceTest.GetListHead());  
+  cout << "Test04a - size of list " << emplaceTest.list_size() << endl;
   
   return 0;
 }

@@ -3,7 +3,7 @@
 ** DONE list.size()
 ** DONE list_add_to_back()
 ** TODO list.sort() to be implemented
-** TODO list.emplace(position, value)
+** DONE list.emplace(position, value)
 ** TODO list.nremove(position)
 ** TODO list_dump - why does it need the pHead? Its already private?
 ** DONE list.front() returns the first list value

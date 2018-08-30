@@ -75,7 +75,8 @@ class linked_list {
     // Member functions
     void list_add_element (int value); // Add an element to the list
     void list_add_at_front(int value); // Add an element to the front of the list
-    void list_add_at_back (int value); // Add an element to the back  of the list  
+    void list_add_at_back (int value); // Add an element to the back  of the list
+    void list_emplace     (int position, int value); // Add an element at position
     void list_delete_element(list_element_t *pElement); // Delete element
     int  list_get_front   (void);      // return first list element
     int  list_get_back    (void);      // return tail list element  

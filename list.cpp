@@ -134,7 +134,7 @@ linked_list::~linked_list() {
  *
  * @return    none
  *
- * @note
+ * @note      This adds to the TAIL of the list
  */
 void linked_list::list_add_element (int value) {
 #if defined ( DEBUG_TRACE )
@@ -165,6 +165,51 @@ void linked_list::list_add_element (int value) {
   
   cout << "<" << this << ">TRACE: list_add_element Head " << pHead << endl;  
   cout << "<" << this << ">TRACE: list_add_element Tail " << pTail << endl;
+}
+
+/**
+ * @function  void node::list_emplace(int position, int value)
+ *
+ * @brief     Add a new list element at Position in the list
+ *
+ * @param[in] int position   Place to insert the new element
+ * @param[in] int value      element 
+ *
+ * @return    none
+ *
+ * @note      This will insert at Position. 
+ */
+void linked_list::list_emplace (int position, int value) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_emplace called "  << endl;  
+#endif
+  list_element_t *Temp;
+  list_element_t *pCurrent;
+  list_element_t *pPrevious;
+  
+  /*
+   * Create a new element for the list
+   */
+  Temp = new list_element_t;
+  Temp->element = value;
+  Temp->pNext = NULL;
+
+  cout << "<" << this << ">TRACE: list_emplace Created new " << Temp << endl;
+
+  /*
+   * Traverse the list until we get to position
+   */
+  pCurrent = pHead;  /* Start of the list */
+  for (int i=1; i < position; i++) {
+     pPrevious = pCurrent;
+     pCurrent = pCurrent->pNext;
+  }
+
+  /* Now we are at Position, lets insert the new node */
+  pPrevious->pNext = Temp;
+  Temp->pNext      = pCurrent;
+  
+  list_count++;
 }
 
 /**
