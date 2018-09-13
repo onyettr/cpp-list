@@ -76,8 +76,8 @@ linked_list::linked_list(void) {
   cout << "<" << this << ">TRACE: Basic Constructor called"  << endl;  
 #endif
 
-  pHead = NULL;
-  pTail = NULL;
+  pHead = nullptr;
+  pTail = nullptr;
   list_count= 0;
 }
 
@@ -136,11 +136,11 @@ void linked_list::list_add_element (int value) {
    */
   Temp = new list_element_t;
   Temp->element = value;
-  Temp->pNext = NULL;
+  Temp->pNext = nullptr;
 
   cout << "<" << this << ">TRACE: list_add_element Created new " << Temp << endl;
   
-  if (pHead == NULL) {
+  if (pHead == nullptr) {
     /*
      * We are the first
      */
@@ -181,7 +181,7 @@ void linked_list::list_add_position(int position, int value) {
    */
   Temp = new list_element_t;
   Temp->element = value;
-  Temp->pNext = NULL;
+  Temp->pNext = nullptr;
 
   cout << "<" << this << ">TRACE: list_emplace Created new " << Temp << endl;
 
@@ -256,7 +256,7 @@ void linked_list::list_add_at_back (int value) {
    */
   Temp = new list_element_t;
   Temp->element = value;
-  Temp->pNext = NULL;             /* This element points at nothing as its now at the back                  */
+  Temp->pNext = nullptr;          /* This element points at nothing as its now at the back                  */
   pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
   pTail = Temp;                   /* This moves the Tail to point to the new element, making it at the back */
   
@@ -422,7 +422,7 @@ void linked_list::list_dump (void) {
 
     pCurrent = GetListHead();
     cout << "   Address   \tValue\t   pNext" << endl;
-    while (pCurrent != NULL) {
+    while (pCurrent != nullptr) {
       cout << "[" << pCurrent << "]\t";
       cout << pCurrent->element << "\t[" << pCurrent->pNext << "]" << endl;
 

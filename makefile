@@ -29,8 +29,9 @@ OBJS  = $(OBJECT_DIR)/main.o 	 	\
 	$(OBJECT_DIR)/test_add.o 	\
 	$(OBJECT_DIR)/test_del.o 	\
 	$(OBJECT_DIR)/test_size.o	\
-	$(OBJECT_DIR)/test_front.o	\
-	$(OBJECT_DIR)/test_back.o
+	$(OBJECT_DIR)/test_back.o	\
+	$(OBJECT_DIR)/test_front.o	
+
 LIBS  = liblist.a
 
 #*******************************************************************************
@@ -69,15 +70,14 @@ $(OBJECT_DIR)/test_del.o:	test_del.cpp
 $(OBJECT_DIR)/test_size.o:	test_size.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_size.cpp -o $(OBJECT_DIR)/test_size.o
 
-$(OBJECT_DIR)/test_front.o:	test_front.cpp
-	$(CC) $(CFLAGS) $(DEBUG) test_front.cpp -o $(OBJECT_DIR)/test_front.o
-
 $(OBJECT_DIR)/test_back.o:	test_back.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_back.cpp -o $(OBJECT_DIR)/test_back.o
 
+$(OBJECT_DIR)/test_front.o:	test_front.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_front.cpp -o $(OBJECT_DIR)/test_front.o
+
 $(OBJECT_DIR)/poortool.o:	poortool.c
 	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o $(OBJECT_DIR)/poortool.o
-
 
 clean:
 	rm -f list.exe

@@ -12,7 +12,7 @@
 ** DONE list.get_front() returns the first list value
 ** TODO test harness as library
 ** TODO Convert to Templates
-** TODO Use nullptr (C++11?)
+** DONE Use nullptr (C++11?)
 ** TODO Print function should default to std::cout (std::ostream& stream = std::cout) const
 ** TODO Use pre-increment rather than post increment
 ** TODO Push should use push(T const& data) (const correctness)
