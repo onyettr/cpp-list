@@ -1,9 +1,7 @@
 /**
+ * MODULE: C++ Programming Examples
  *
- * @brief  Test harness for single linked list_back operations
- * @file   test_back.cpp
- * @author onyettr
- *
+ * @brief Test harness for single linked list Empty operations
  */
 
 /*
@@ -58,37 +56,22 @@ Prototypes of all functions contained in this file (in order of occurance)
 ******************************************************************************
 */
 
-int test_back (void)
+int test_empty( void )
 {
   // Sign on
-  cout << "**** Linked List Class Test - back" << endl; 
+  cout << "**** Linked List Class Test - empty" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list addTest;
+  linked_list emptyTest;
   
-  /*
-   * Add an element
-   */
-  cout << "\tTest01 - return Tail, no list elements" << endl;
-  cout << "\tReturn (  0) = " << addTest.list_get_back() << endl;
+  cout << "\tTest01 - list empty  TRUE = " << (emptyTest.list_empty() == true ? "TRUE" : "FALSE") << endl;  
 
-  cout << "\tTest02 - return Tail, list has one elenment" << endl;  
-  addTest.list_add_element(201);
-  cout << "\tReturn (201) = " << addTest.list_get_back() << endl;  
+  emptyTest.list_add_element(100);
+  cout << "\tTest02 - list empty  FALSE= " << (emptyTest.list_empty() == true ? "TRUE" : "FALSE") << endl;
 
-  cout << "\tTest03 - return back, list has two elements" << endl;  
-  addTest.list_add_element(301);
-  cout << "\tReturn (301) = " << addTest.list_get_back() << endl;  
-
-  cout << "\tTest04 - return back, list has new back element" << endl;  
-  addTest.list_add_at_back(111);
-  cout << "\tReturn (111) = " << addTest.list_get_back() << endl;  
-
-  addTest.list_dump();
-
-  cout << "**** Linked List Class Test - back Ends" << endl;
+  cout << "**** Linked List Class Test - empty Ends" << endl;
   
   return 0;
 }

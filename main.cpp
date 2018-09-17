@@ -67,10 +67,11 @@ int main ( void )
   cout << "C++ Examples Simple Linked List Class" << endl; 
 
   test_add();
-  test_del();
-  test_size();
   test_front();
   test_back();  
+  test_del();
+  test_size();
+  test_empty();
   //  poortool_init();
 }
 

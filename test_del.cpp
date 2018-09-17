@@ -59,20 +59,25 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_del ( void )
 {
   // Sign on
-  cout << "Linked List Class Test - del" << endl; 
+  cout << "**** Linked List Class Test - deletion" << endl; 
 
   /*
    * create a new list
    */ 
-  linked_list addTest;
+  linked_list delTest;
   
   /*
    * Add an element
    */
-  cout << "Test01 - del single element" << endl;
-  addTest.list_add_element(202);
-  addTest.list_dump();  
-  addTest.list_delete_element(addTest.GetListHead()->pNext);
+  cout << "\tTest01 - del single element" << endl;
+  delTest.list_add_element(202);
+  cout << "\tNumber in list before deletion = " << delTest.list_size() << endl;  
+  delTest.list_dump();  
+  delTest.list_delete_element(delTest.GetListHead()->pNext);
+  cout << "\tNumber in list after deletion  = " << delTest.list_size() << endl;    
+  delTest.list_dump();
+
+  cout << "**** Linked List Class Test - deletion Ends" << endl;
   
   return 0;
 }

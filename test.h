@@ -56,6 +56,7 @@ int test_add(void);
 int test_del(void);
 int test_size(void);
 int test_front (void);
-int test_back (void);  
+int test_back (void);
+int test_empty(void);
 #endif // __TEST_H__
 

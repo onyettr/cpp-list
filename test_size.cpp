@@ -59,19 +59,19 @@ Prototypes of all functions contained in this file (in order of occurance)
 int test_size ( void )
 {
   // Sign on
-  cout << "Linked List Class Test - size" << endl; 
+  cout << "**** Linked List Class Test - size" << endl; 
 
   /*
    * create a new list
    */ 
   linked_list SizeTest;
   
-  cout << "Test01 - size on empty list " << SizeTest.list_size() << endl;
-  cout << "Test02 - list empty         " << (SizeTest.list_empty() == true ? "TRUE" : "FALSE") << endl;  
+  cout << "\tTest01 - size on empty list " << SizeTest.list_size() << endl;
 
   SizeTest.list_add_element(100);
-  cout << "Test03 - size on list " << SizeTest.list_size() << endl;
-  cout << "Test04 - list empty   " << (SizeTest.list_empty() == true ? "TRUE" : "FALSE") << endl;
+  cout << "\tTest03 - size on list " << SizeTest.list_size() << endl;
+
+  cout << "**** Linked List Class Test - size Ends" << endl;
   
   return 0;
 }

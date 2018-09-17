@@ -12,8 +12,8 @@ CC		=	g++
 LINK  		=	g++
 AR		=	ar
 ARFLAGS		=       rcs
-DEBUG 		=	-g
-CFLAGS		=	-c -Wall -pedantic -DDEBUG_TRACE
+CFLAGS		=	-g -c -Wall -pedantic
+#CFLAGS		+= 	-DDEBUG_TRACE
 LFLAGS		=
 
 CHECK		= 	cppcheck
@@ -30,7 +30,8 @@ OBJS  = $(OBJECT_DIR)/main.o 	 	\
 	$(OBJECT_DIR)/test_del.o 	\
 	$(OBJECT_DIR)/test_size.o	\
 	$(OBJECT_DIR)/test_back.o	\
-	$(OBJECT_DIR)/test_front.o	
+	$(OBJECT_DIR)/test_front.o	\
+	$(OBJECT_DIR)/test_empty.o
 
 LIBS  = liblist.a
 
@@ -76,6 +77,9 @@ $(OBJECT_DIR)/test_back.o:	test_back.cpp
 $(OBJECT_DIR)/test_front.o:	test_front.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_front.cpp -o $(OBJECT_DIR)/test_front.o
 
+$(OBJECT_DIR)/test_empty.o:	test_empty.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_empty.cpp -o $(OBJECT_DIR)/test_empty.o
+
 $(OBJECT_DIR)/poortool.o:	poortool.c
 	$(CC) $(CFLAGS) $(DEBUG) poortool.c -o $(OBJECT_DIR)/poortool.o
 
@@ -87,8 +91,9 @@ clean:
 	rm -f $(OBJECT_DIR)/test_add.o
 	rm -f $(OBJECT_DIR)/test_del.o
 	rm -f $(OBJECT_DIR)/test_size.o
-	rm -f $(OBJECT_DIR)/test_front.o
 	rm -f $(OBJECT_DIR)/test_back.o
+	rm -f $(OBJECT_DIR)/test_front.o
+	rm -f $(OBJECT_DIR)/test_empty.o
 	rm -f $(OBJECT_DIR)/poortool.o
 	rm -f core
 

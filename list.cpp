@@ -134,11 +134,21 @@ void linked_list::list_add_element (int value) {
   /*
    * Create a new element for the list
    */
-  Temp = new list_element_t;
+  try {
+    Temp = new list_element_t;
+  }
+  catch (std::bad_alloc& exp) {
+    std::cerr << "Dynamic memory allocation failed!" << exp.what();
+
+    return;
+  }
+    
   Temp->element = value;
   Temp->pNext = nullptr;
 
+#if defined (DEBUG_TRACE)
   cout << "<" << this << ">TRACE: list_add_element Created new " << Temp << endl;
+#endif
   
   if (pHead == nullptr) {
     /*
@@ -151,9 +161,10 @@ void linked_list::list_add_element (int value) {
     pTail = pTail->pNext;
   }
   list_count++;
-  
+#if defined (DEBUG_TRACE)  
   cout << "<" << this << ">TRACE: list_add_element Head " << pHead << endl;  
   cout << "<" << this << ">TRACE: list_add_element Tail " << pTail << endl;
+#endif
 }
 
 /**
@@ -182,9 +193,10 @@ void linked_list::list_add_position(int position, int value) {
   Temp = new list_element_t;
   Temp->element = value;
   Temp->pNext = nullptr;
-
+#if defined (DEBUG_TRACE)
   cout << "<" << this << ">TRACE: list_emplace Created new " << Temp << endl;
-
+#endif
+  
   /*
    * Traverse the list until we get to position
    */
@@ -214,24 +226,33 @@ void linked_list::list_add_position(int position, int value) {
  */
 void linked_list::list_add_at_front(int value) {
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_add_to_front called "  << endl;  
+    cout << "<" << this << ">TRACE: list_add_to_front called "  << endl;  
 #endif
-  list_element_t *Temp;
+    list_element_t *Temp;
 
-  /*
-   * Create a new element for the list
-   */
-  Temp = new list_element_t;
-  Temp->element = value;
-  Temp->pNext = pHead;            /* This element now points to the head */
-  pHead = Temp;                   /* This moves the head to point to the new element, making it at the front */
-  
-  cout << "<" << this << ">TRACE: list_add_to_front Created new " << Temp << endl;
+    /*
+     * Create a new element for the list
+     */
+    try {
+        Temp = new list_element_t;
+    }
+    catch (std::bad_alloc& exp) {
+       std::cerr << "Dynamic memory allocation failed!" << exp.what();
 
-  list_count++;
+       return;
+    }
+
+    Temp->element = value;
+    Temp->pNext = pHead;            /* This element now points to the head */
+    pHead = Temp;                   /* This moves the head to point to the new element, making it at the front */
+
+    list_count++;                   /* increment the number in the list    */
   
-  cout << "<" << this << ">TRACE: list_add_to_front Head " << pHead << endl;  
-  cout << "<" << this << ">TRACE: list_add_to_front Tail " << pTail << endl;
+#if defined (DEBUG_TRACE)
+    cout << "<" << this << ">TRACE: list_add_to_front Created new " << Temp << endl;
+    cout << "<" << this << ">TRACE: list_add_to_front Head " << pHead << endl;  
+    cout << "<" << this << ">TRACE: list_add_to_front Tail " << pTail << endl;
+#endif
 }
 
 /**
@@ -247,25 +268,35 @@ void linked_list::list_add_at_front(int value) {
  */
 void linked_list::list_add_at_back(int value) {
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_add_to_back called "  << endl;  
+    cout << "<" << this << ">TRACE: list_add_to_back called "  << endl;  
 #endif
-  list_element_t *Temp;
+    list_element_t *Temp;
 
-  /*
-   * Create a new element for the list
-   */
-  Temp = new list_element_t;
-  Temp->element = value;
-  Temp->pNext = nullptr;          /* This element points at nothing as its now at the back                  */
-  pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
-  pTail = Temp;                   /* This moves the Tail to point to the new element, making it at the back */
-  
-  cout << "<" << this << ">TRACE: list_add_to_back Created new " << Temp << endl;
+    /*
+     * Create a new element for the list
+     */
+    try {
+       Temp = new list_element_t;
+    }
+    catch (std::bad_alloc& exp)
+    {
+       std::cerr << "Dynamic memory allocation failed!" << exp.what();
 
-  list_count++;
+       return;
+    }
+
+    Temp->element = value;
+    Temp->pNext = nullptr;          /* This element points at nothing as its now at the back                  */
+    pTail->pNext = Temp;            /* Make the current last element point to the new Tail                    */
+    pTail = Temp;                   /* This moves the Tail to point to the new element, making it at the back */
   
-  cout << "<" << this << ">TRACE: list_add_to_front Head " << pHead << endl;  
-  cout << "<" << this << ">TRACE: list_add_to_front Tail " << pTail << endl;
+    list_count++;
+    
+#if defined ( DEBUG_TRACE )
+    cout << "<" << this << ">TRACE: list_add_to_back Created new " << Temp << endl;  
+    cout << "<" << this << ">TRACE: list_add_to_front Head " << pHead << endl;  
+    cout << "<" << this << ">TRACE: list_add_to_front Tail " << pTail << endl;
+#endif    
 }
 
 /**
@@ -281,13 +312,15 @@ void linked_list::list_add_at_back(int value) {
  */
 void linked_list::list_delete_element (list_element_t *pElement) {
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_delete_element called "  << endl;  
+    cout << "<" << this << ">TRACE: list_delete_element called "  << endl;  
 #endif
 
-  list_count--;
-  
-  cout << "<" << this << ">TRACE: list_delete_element Head " << pHead << endl;  
-  cout << "<" << this << ">TRACE: list_delete_element Tail " << pTail << endl;
+    list_count--;
+
+#if defined ( DEBUG_TRACE )  
+    cout << "<" << this << ">TRACE: list_delete_element Head " << pHead << endl;  
+    cout << "<" << this << ">TRACE: list_delete_element Tail " << pTail << endl;
+#endif  
 }
 
 /**
