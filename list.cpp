@@ -69,7 +69,7 @@ Prototypes of all functions contained in this file (in order of occurance)
  *
  * @return    None
  *
- * @note      ctor
+ * @note      constructor
  */
 linked_list::linked_list(void) {
 #if defined ( DEBUG_TRACE )
@@ -82,7 +82,7 @@ linked_list::linked_list(void) {
 }
 
 /**
- * @function  linked_list::~linked_list()
+ * @fn        linked_list::~linked_list()
  *
  * @brief     linked_list destructor
  *
@@ -92,7 +92,7 @@ linked_list::linked_list(void) {
  *
  * @note      dtor
  */
-linked_list::~linked_list() {
+linked_list::~linked_list(void) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: Basic Destructor called "  << endl;  
 #endif
@@ -115,7 +115,7 @@ linked_list::~linked_list() {
 }
 
 /**
- * @function  void node::list_add_element(int value)
+ * @fn        void node::list_add_element(int value)
  *
  * @brief     Add a new list element
  *
@@ -157,7 +157,7 @@ void linked_list::list_add_element (int value) {
 }
 
 /**
- * @function  void node::list_add_position(int position, int value)
+ * @fn        void linked_list::list_add_position(int position, int value)
  *
  * @brief     Add a new list element at Position in the list
  *
@@ -202,7 +202,7 @@ void linked_list::list_add_position(int position, int value) {
 }
 
 /**
- * @function  void node::list_add_at_front(int value)
+ * @fn        void node::list_add_at_front(int value)
  *
  * @brief     Add a new list value to the front of the list
  *
@@ -212,7 +212,7 @@ void linked_list::list_add_position(int position, int value) {
  *
  * @note
  */
-void linked_list::list_add_at_front (int value) {
+void linked_list::list_add_at_front(int value) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_add_to_front called "  << endl;  
 #endif
@@ -235,7 +235,7 @@ void linked_list::list_add_at_front (int value) {
 }
 
 /**
- * @function  void node::list_add_at_back(int value)
+ * @fn        void node::list_add_at_back(int value)
  *
  * @brief     Add a new list value to the back of the list
  *
@@ -245,7 +245,7 @@ void linked_list::list_add_at_front (int value) {
  *
  * @note
  */
-void linked_list::list_add_at_back (int value) {
+void linked_list::list_add_at_back(int value) {
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_add_to_back called "  << endl;  
 #endif
@@ -269,7 +269,7 @@ void linked_list::list_add_at_back (int value) {
 }
 
 /**
- * @function  void node::list_delete_element(list_element_t *lp)
+ * @fn        void linked_list::list_delete_element(list_element_t *lp)
  *
  * @brief     Remove a list element
  *
@@ -291,11 +291,11 @@ void linked_list::list_delete_element (list_element_t *pElement) {
 }
 
 /**
- * @function  void node::list_sort(void)
+ * @fn        void linked_list::list_sort(void)
  *
  * @brief     Sort the list
  *
- * @param[in] none
+ * @param
  *
  * @return    none
  *
@@ -309,11 +309,11 @@ void linked_list::list_sort (void) {
 }
 
 /**
- * @function  int list::list_size(void)
+ * @fn        int linked_list::list_size(void)
  *
  * @brief     return the size of the list
  *
- * @param[in] none
+ * @param
  *
  * @return    Size of the list
  *
@@ -328,7 +328,7 @@ int linked_list::list_size (void) {
 }
 
 /**
- * @function  bool list::list_empty(void)
+ * @fn        bool linked_list::list_empty(void)
  *
  * @brief     Is the list empty?
  *
@@ -338,7 +338,7 @@ int linked_list::list_size (void) {
  *
  * @note
  */
-bool linked_list::list_empty (void) {
+bool linked_list::list_empty(void) {
 #if defined ( DEBUG_TRACE_1 )
   cout << "<" << this << ">TRACE: list_empty called "  << endl;  
 #endif
@@ -350,7 +350,7 @@ bool linked_list::list_empty (void) {
 }
 
 /**
- * @function  int list::list_get_front(void)
+ * @fn        int linked_list::list_get_front(void)
  *
  * @brief     return front list value
  *
@@ -360,7 +360,7 @@ bool linked_list::list_empty (void) {
  *
  * @note
  */
-int linked_list::list_get_front (void) {
+int linked_list::list_get_front(void) {
   int value = 0;  
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_get_front called "  << endl;  
@@ -377,7 +377,7 @@ int linked_list::list_get_front (void) {
 }
 
 /**
- * @function  int list::list_get_back(void)
+ * @fn        int linked_llist::list_get_back(void)
  *
  * @brief     return the back/tail list value
  *
@@ -387,7 +387,7 @@ int linked_list::list_get_front (void) {
  *
  * @note
  */
-int linked_list::list_get_back (void) {
+int linked_list::list_get_back(void) {
   int value = 0;  
 #if defined ( DEBUG_TRACE )
   cout << "<" << this << ">TRACE: list_get_back called "  << endl;  
@@ -404,11 +404,11 @@ int linked_list::list_get_back (void) {
 }
 
 /**
- * @function  void linked_list::list_dump(void) 
+ * @fn        void linked_list::list_dump(void) 
  *
  * @brief     Print out the single linked list
  *
- * @param[in] none
+ * @param
  *
  * @return    none
  *
