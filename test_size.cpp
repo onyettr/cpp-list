@@ -69,7 +69,7 @@ int test_size ( void )
   cout << "\tTest01 - size on empty list " << SizeTest.list_size() << endl;
 
   SizeTest.list_add_element(100);
-  cout << "\tTest03 - size on list " << SizeTest.list_size() << endl;
+  cout << "\tTest03 - size on list 1 =   " << SizeTest.list_size() << endl;
 
   cout << "**** Linked List Class Test - size Ends" << endl;
   
