@@ -400,7 +400,7 @@ int linked_list::list_get_front(void) {
 #endif
 
   if (list_count == 0) {
-    cout << "Error: No elements in linked list" << endl;
+    throw std::runtime_error("linked_list::list_get_front - list is empty");
   }
   else {
     value = pHead->element;

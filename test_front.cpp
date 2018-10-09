@@ -72,7 +72,13 @@ int test_front (void)
    * Add an element
    */
   cout << "Test01 - return front, no list elements" << endl;
-  cout << "Return (  0) = " << addTest.list_get_front() << endl;
+  try {
+    cout << "Return (  0) = " << addTest.list_get_front() << endl;
+  } catch(std::runtime_error& e) {
+    cout << "Exception: " << e.what() << endl;
+  } catch(...) {
+    cout << "Exception: ouch something bad went on = " << endl;
+  }
 
   cout << "Test02 - return front, list has one elenment" << endl;  
   addTest.list_add_element(200);
