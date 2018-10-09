@@ -427,11 +427,48 @@ int linked_list::list_get_back(void) {
 #endif
 
   if (list_count == 0) {
-    cout << "Error: No elements in linked list" << endl;
+    throw std::runtime_error("linked_list::list_get_back - list is empty");    
   }
   else {
     value = pTail->element;
   }
+
+  return value;
+}
+
+/**
+ * @fn        void linked_list::list_get_position(int position)
+ *
+ * @brief     return value at Position
+ *
+ * @param[in] int position   Element to return
+ *
+ * @return    int value
+ *
+ * @note      This will return value at Position. 
+ */
+int linked_list::list_get_position(int position) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_get_position called "  << endl;  
+#endif
+  list_element_t *pCurrent;
+  int value = 0;
+
+  if (list_empty()) {
+     throw std::runtime_error("linked_list::list_get_front - list is empty");
+     return value;
+  }
+
+  /*
+   * Traverse the list until we get to position
+   */
+  pCurrent = pHead;  /* Start of the list */
+  for (int i=1; i < position; i++) {
+     pCurrent = pCurrent->pNext;
+  }
+
+  /* Now we are at Position, lets insert the new node */
+  value = pCurrent->element;
 
   return value;
 }

@@ -69,36 +69,46 @@ TEST_F(LinkedListTest, ListFrontEmpty) {
 }
 
 /**
- * @brief Tests - front list is empty
+ * @brief Tests - front list is ok
  */
-TEST_F(LinkedListTest, ListFrontSuccess) {
+TEST_F(LinkedListTest, ListFrontOneElement) {
   linked_list FrontTest;
 
   FrontTest.list_add_element(200);
   EXPECT_EQ(200,FrontTest.list_get_front());
 }
-  
-#if 0
+
 /**
- * @brief StackTest PEEK
+ * @brief Tests - front list is ok
  */
-TEST_F(StackTest, PeekingWithSomethingThere)
-{
-  Stack<int> peekme(3);  
+TEST_F(LinkedListTest, ListFrontTwoElement) {
+  linked_list FrontTest;
 
-  peekme.push(2001);
-  peekme.push(2002);
-  peekme.push(2003);
-
-  EXPECT_EQ(2003, peekme.peek());  
+  FrontTest.list_add_element(200);
+  FrontTest.list_add_element(300);  
+  EXPECT_EQ(200,FrontTest.list_get_front());
 }
 
-TEST_F(StackTest, PeekingWithNothingThere)
-{
-  Stack<int> peekmeFail(1);      
+/**
+ * @brief Tests - front list is ok
+ */
+TEST_F(LinkedListTest, ListFrontExplicit) {
+  linked_list FrontTest;
+
+  FrontTest.list_add_element(200);
+  FrontTest.list_add_element(300);
+  FrontTest.list_add_at_front(111);    
+  EXPECT_EQ(111,FrontTest.list_get_front());
+}
+
+/**
+ * @brief Tests - back list is empty
+ */
+TEST_F(LinkedListTest, ListBackEmpty) {
+  linked_list BackTest;
 
   try {
-     peekmeFail.peek();
+    BackTest.list_get_back();
   }
   catch (std::runtime_error& e) {
     SUCCEED();
@@ -111,115 +121,100 @@ TEST_F(StackTest, PeekingWithNothingThere)
 }
 
 /**
- * @brief StackTest PUSH
+ * @brief Tests - back list is ok
  */
-TEST_F(StackTest, StackPushOneINTEGERItem) {
-  Stack<int> MyStack(5);
+TEST_F(LinkedListTest, ListTailOneElement) {
+  linked_list BackTest;
 
-  MyStack.push(100);
-  EXPECT_EQ(1, MyStack.StackSize());
-}
-
-TEST_F(StackTest, StackPushOneCHARItem) {
-  Stack<char> MyStack(5);
-
-  MyStack.push('a');
-  EXPECT_EQ(1, MyStack.StackSize());
-}
-  
-TEST_F(StackTest, StackPushOneFLOATItem) {
-  Stack<float> MyStack(5);
-
-  MyStack.push(3.14);
-  EXPECT_EQ(1, MyStack.StackSize());  
-}
-
-TEST_F(StackTest, StackPushOneDOUBLEItem) {
-  Stack<double> MyStack(5);
-
-  MyStack.push(3.1423);
-  EXPECT_EQ(1, MyStack.StackSize());
-}
-  
-TEST_F(StackTest, StackPushOneSTRINGItem) {
-  Stack<string> MyStack(5);
-
-  MyStack.push("hello");
-  EXPECT_EQ(1, MyStack.StackSize());  
-}
-
-TEST_F(StackTest, StackPushOneBOOLEANItem) {
-  Stack<bool> MyStack(5);
-
-  MyStack.push(true);
-  EXPECT_EQ(1, MyStack.StackSize());  
-}
-  
-TEST_F(StackTest, StackPushToOverflow) {
-  Stack<int> MyStack(5);
-
-  try {
-     MyStack.push(100);
-     MyStack.push(101);
-     MyStack.push(102);
-     MyStack.push(103);
-     MyStack.push(104);
-     MyStack.push(105);
-  }
-  catch (std::runtime_error& e) {
-    SUCCEED();
-    return;
-  }
-  catch (...) {
-    FAIL() << "odd exception?";
-  }
-  ADD_FAILURE() << "Exception not thrown as expected";
-
+  BackTest.list_add_element(201);
+  EXPECT_EQ(201,BackTest.list_get_back());
 }
 
 /**
- * @brief StackTest POP
+ * @brief Tests - back list is ok
  */
-TEST_F(StackTest, StackPopOneINTEGERItem) {
-  Stack<int> MyStack(5);
+TEST_F(LinkedListTest, ListTailTwoElement) {
+  linked_list BackTest;
 
-  MyStack.push(100);
-  EXPECT_EQ(100, MyStack.pop());
+  BackTest.list_add_element(201);
+  BackTest.list_add_element(301);  
+  EXPECT_EQ(301,BackTest.list_get_back());
 }
 
-TEST_F(StackTest, StackPopOneFLOATItem) {
-  Stack<float> MyStack(5);
+/**
+ * @brief Tests - back list is ok
+ */
+TEST_F(LinkedListTest, ListTailExplicitAddAtBack) {
+  linked_list BackTest;
 
-  MyStack.push(3.14);
-  EXPECT_FLOAT_EQ(3.14, MyStack.pop());  
+  BackTest.list_add_element(200);
+  BackTest.list_add_element(300);
+  BackTest.list_add_at_back(111);    
+  EXPECT_EQ(111,BackTest.list_get_back());
 }
 
-TEST_F(StackTest, StackPopOneCHARItem) {
-  Stack<char> MyStack(5);
+/**
+ * @brief Tests - add list is ok
+ */
+TEST_F(LinkedListTest, ListAddOneElement) {
+  linked_list AddTest;
 
-  MyStack.push('a');
-  EXPECT_EQ('a', MyStack.pop());  
+  AddTest.list_add_element(10);
+  EXPECT_EQ(1,AddTest.list_size());
+}
+
+/**
+ * @brief Tests - add more list is ok
+ */
+TEST_F(LinkedListTest, ListAddFourElement) {
+  linked_list AddTest;
+
+  AddTest.list_add_element(1);
+  AddTest.list_add_element(2);
+  AddTest.list_add_element(3);
+  AddTest.list_add_element(4);
+  EXPECT_EQ(4,AddTest.list_size());
+}
+
+/**
+ * @brief Tests - add at position
+ */
+TEST_F(LinkedListTest, ListAddAtPosition) {
+  linked_list AddTest;
+
+  AddTest.list_add_element(1);
+  AddTest.list_add_element(2);
+  AddTest.list_add_element(3);
+  AddTest.list_add_element(4);
+
+  AddTest.list_add_position(2, 5);
+  EXPECT_EQ(5,AddTest.list_size());
+}
+
+/**
+ * @brief Tests - Get at position
+ */
+TEST_F(LinkedListTest, ListGetAtPosition) {
+  linked_list AddTest;
+
+  AddTest.list_add_element(1);
+  AddTest.list_add_element(2);
+  AddTest.list_add_element(3);
+  AddTest.list_add_element(4);
+
+  AddTest.list_add_position(2, 5);
+
+  EXPECT_EQ(5,AddTest.list_get_position(2));
 }
   
-TEST_F(StackTest, StackPopOneSTRINGItem) {
-  Stack<string> MyStack(5);
-
-  MyStack.push("hello");
-  EXPECT_EQ("hello", MyStack.pop());  
-}
-
-TEST_F(StackTest, StackPopOneBOOLEANItem) {
-  Stack<bool> MyStack(5);
-
-  MyStack.push(true);
-  EXPECT_TRUE(MyStack.pop());  
-}
-  
-TEST_F(StackTest, StackPopUnderflow) {
-  Stack<int> MyStack(5);
+/**
+ * @brief Tests - get list is empty
+ */
+TEST_F(LinkedListTest, ListGetEmpty) {
+  linked_list GetTest;
 
   try {
-     MyStack.pop();
+    GetTest.list_get_position(1);
   }
   catch (std::runtime_error& e) {
     SUCCEED();
@@ -230,5 +225,5 @@ TEST_F(StackTest, StackPopUnderflow) {
   }
   ADD_FAILURE() << "Exception not thrown as expected";
 }
-#endif
+
 }
