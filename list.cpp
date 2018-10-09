@@ -448,21 +448,20 @@ int linked_list::list_get_back(void) {
  * @note
  */
 void linked_list::list_dump (void) {
-  list_element_t *pCurrent;
+   list_element_t *pCurrent;
   
-  if ( !list_empty() ) {
-    cout << "Number of nodes = " << list_count << endl;
+   if ( !list_empty() ) {
+      pCurrent = GetListHead();
 
-    pCurrent = GetListHead();
-    cout << "   Address   \tValue\t   pNext" << endl;
-    while (pCurrent != nullptr) {
-      cout << "[" << pCurrent << "]\t";
-      cout << pCurrent->element << "\t[" << pCurrent->pNext << "]" << endl;
+      cout << "   Address   \tValue\t   pNext\tNumber of Nodes = " << list_count << endl;
+      while (pCurrent != nullptr) {
+         cout << "[" << pCurrent << "]\t";
+         cout << pCurrent->element << "\t[" << pCurrent->pNext << "]" << endl;
 
-      pCurrent = pCurrent->pNext;
+         pCurrent = pCurrent->pNext;
     }
   }
   else {
-    cout << "Error: No elements in linked list" << endl;
+     cout << "Error: No elements in linked list" << endl;
   }
 }
