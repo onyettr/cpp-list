@@ -17,7 +17,7 @@ CFLAGS		=	-g -c -Wall -pedantic
 LFLAGS		=
 
 CHECK		= 	cppcheck
-CHECK_FLAGS	= 	--language=c++ --enable=all
+CHECK_FLAGS	= 	--language=c++ --enable=all -igoogletest
 
 # -DDEBUG_TRACE	Will turn on deep trace per function
 # -DEXCEPTION	Will use the real exceptions with the 'try' that's in the test harness

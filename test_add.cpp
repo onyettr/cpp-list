@@ -106,6 +106,8 @@ int test_add ( void )
   emplaceTest.list_dump();  
   cout << "\tTest05a - size of list " << emplaceTest.list_size() << endl;
 
+  cout << "\tTest05b get at position 2 (5) " << emplaceTest.list_get_position(2) << endl;
+  
   cout << "**** Linked List Class Test - add Ends" << endl;
   
   return 0;
