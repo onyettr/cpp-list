@@ -1,3 +1,4 @@
+
 * cpp-list tasks
 ** TODO [PROJ] Convert to Templates
 ** TODO [LIST] list_delete_front()
@@ -8,8 +9,8 @@
 ** TODO [TEST] test harness as library
 ** TODO [LIST] Print function should default to std::cout (std::ostream& stream = std::cout) const
 ** TODO [LIST] Use pre-increment rather than post increment
-** TODO [TEST] harness to be split, add exception handling.
-** TODO [LIST] list_get_front - throw exception for empty list
+** DONE [TEST] harness to be split, add exception handling.
+** DONE [LIST] list_get_front - throw exception for empty list
 ** TODO [LIST] list_get_front - use empty method to determine list status
 ** TODO [LIST] list_empty -> empty (STL)?
 ** DONE [LIST] list.isEmpty() from STL

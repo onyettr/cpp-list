@@ -336,9 +336,8 @@ void linked_list::list_delete_element (list_element_t *pElement) {
  */
 void linked_list::list_sort (void) {
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_sort called "  << endl;  
+   cout << "<" << this << ">TRACE: list_sort called "  << endl;  
 #endif
-  
 }
 
 /**
@@ -354,7 +353,7 @@ void linked_list::list_sort (void) {
  */
 int linked_list::list_size (void) {
 #if defined ( DEBUG_TRACE_1 )
-  cout << "<" << this << ">TRACE: list_size called "  << endl;  
+   cout << "<" << this << ">TRACE: list_size called "  << endl;  
 #endif
 
   return list_count;
@@ -373,12 +372,13 @@ int linked_list::list_size (void) {
  */
 bool linked_list::list_empty(void) {
 #if defined ( DEBUG_TRACE_1 )
-  cout << "<" << this << ">TRACE: list_empty called "  << endl;  
+   cout << "<" << this << ">TRACE: list_empty called "  << endl;  
 #endif
 
   if (list_count == 0) {
-    return true;
+     return true;
   }
+
   return false;
 }
 
@@ -394,19 +394,19 @@ bool linked_list::list_empty(void) {
  * @note
  */
 int linked_list::list_get_front(void) {
-  int value = 0;  
+   int value = 0;  
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_get_front called "  << endl;  
+   cout << "<" << this << ">TRACE: list_get_front called "  << endl;  
 #endif
 
-  if (list_count == 0) {
-    throw std::runtime_error("linked_list::list_get_front - list is empty");
-  }
-  else {
-    value = pHead->element;
-  }
+   if (list_count == 0) {
+      throw std::runtime_error("linked_list::list_get_front - list is empty");
+   }
+   else {
+      value = pHead->element;
+   }
 
-  return value;
+   return value;
 }
 
 /**
@@ -421,19 +421,19 @@ int linked_list::list_get_front(void) {
  * @note
  */
 int linked_list::list_get_back(void) {
-  int value = 0;  
+   int value = 0;  
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: list_get_back called "  << endl;  
+   cout << "<" << this << ">TRACE: list_get_back called "  << endl;  
 #endif
 
-  if (list_count == 0) {
-    throw std::runtime_error("linked_list::list_get_back - list is empty");    
-  }
-  else {
-    value = pTail->element;
-  }
+   if (list_count == 0) {
+      throw std::runtime_error("linked_list::list_get_back - list is empty");    
+   }
+   else {
+      value = pTail->element;
+   }
 
-  return value;
+   return value;
 }
 
 /**

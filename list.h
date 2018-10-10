@@ -52,12 +52,12 @@ Exported Global variables
 */
 
 
-/** @enum  list_element_t
+/** @struct  list_element_t
  *  @brief Linked list "Element". 
  */
 struct list_element_t {
-  int element;
-  list_element_t *pNext;
+    int element;
+    list_element_t *pNext;
 };
 
 /**
@@ -66,8 +66,8 @@ struct list_element_t {
  */
 class linked_list {
     public:
-       linked_list();                     /*! linked list constructor */
-       ~linked_list();                    /*! linked list destructor  */  
+        linked_list();                     /*! linked list constructor */
+        ~linked_list();                    /*! linked list destructor  */  
 
     // Member functions
     void list_add_element (int value);    // Add an element to the list, increases list size by 1
@@ -83,20 +83,25 @@ class linked_list {
     int  list_size        (void);         // Number of elements in the list
     bool list_empty       (void);         // is the list empty?
     list_element_t *GetListHead(void) {   // Obtain Head iterator pointing to first element
-      return pHead;
+        return pHead;
     }
     list_element_t *GetListTail(void) {   // Obtain Tail iterator pointing to last element
-      return pTail;
+        return pTail;
     }
-#if 0    // TODO list
-    void list_delete_front(void);       // Delete first element of list, decreases list size by 1
-    void list_delete_back (void);       // Delete last  element of list, decreases list size by 1
+
+    /*
+     * TODO
+     */
+#if 0   
+    void list_delete_position(int position); // Delete element at position
+    void list_delete_front(void);         // Delete first element of list, decreases list size by 1
+    void list_delete_back (void);         // Delete last  element of list, decreases list size by 1
 #endif  
   
    private:
        list_element_t *pHead;             // Head of the Linked List
        list_element_t *pTail;             // Tail of the Linked List
-       int list_count;                    // Number of nodes or Elements in the list
+       int list_count = 0;                // Number of nodes or Elements in the list
 };
 
 #endif // __LIST_H__

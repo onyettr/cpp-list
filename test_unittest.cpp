@@ -19,15 +19,17 @@ class LinkedListTest : public testing::Test {
 };
 
 /**
- * @brief Linked List Test SIZE
+ * @brief Linked List Test SIZE list empty
  */
 TEST_F(LinkedListTest, ListSizeIsZero) {
   linked_list SizeTest;
 
-  // Test Empty List
   EXPECT_EQ(0, SizeTest.list_size());
 }
 
+/**
+ * @brief Linked List Test SIZE one element
+ */
 TEST_F(LinkedListTest, ListSizeIsOne) {
   linked_list SizeTest;
 
@@ -36,12 +38,18 @@ TEST_F(LinkedListTest, ListSizeIsOne) {
   EXPECT_EQ(1, SizeTest.list_size());
 }
 
+/**
+ * @brief Linked List Test list_empty TRUE
+ */
 TEST_F(LinkedListTest, ListIsEmpty) {
   linked_list EmptyTest;
 
   EXPECT_TRUE(EmptyTest.list_empty());
 }
 
+/**
+ * @brief Linked List Test list_empty FALSE
+ */
 TEST_F(LinkedListTest, ListIsNotEmpty) {
   linked_list EmptyTest;
 
@@ -226,4 +234,28 @@ TEST_F(LinkedListTest, ListGetEmpty) {
   ADD_FAILURE() << "Exception not thrown as expected";
 }
 
+/**
+ * @brief Tests - Delete test
+ */
+TEST_F(LinkedListTest, ListDeleteOneElement) {
+  linked_list DelTest;
+
+  DelTest.list_add_element(202);
+  DelTest.list_delete_element(delTest.GetListHead()->pNext);
+  EXPECT_EQ(0,DelTest.list_size());
+}
+
+/**
+ * @brief Tests - Delete test at Position
+ */
+#if 0  
+TEST_F(LinkedListTest, ListDeleteElementAtPosition) {
+  linked_list DelTest;
+
+  DelTest.list_add_element(202);
+  DelTest.list_delete_element(delTest.GetListHead()->pNext);
+  EXPECT_EQ(0,DelTest.list_size());
+}
+#endif
+  
 }
