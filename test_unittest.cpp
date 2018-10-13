@@ -241,7 +241,7 @@ TEST_F(LinkedListTest, ListDeleteOneElement) {
   linked_list DelTest;
 
   DelTest.list_add_element(202);
-  DelTest.list_delete_element(delTest.GetListHead()->pNext);
+  DelTest.list_delete_element(DelTest.GetListHead()->pNext);
   EXPECT_EQ(0,DelTest.list_size());
 }
 
