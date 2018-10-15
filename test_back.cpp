@@ -72,7 +72,13 @@ int test_back (void)
    * Add an element
    */
   cout << "\tTest01 - return Tail, no list elements" << endl;
+  try {
   cout << "\tReturn (  0) = " << addTest.list_get_back() << endl;
+  } catch(std::runtime_error& e) {
+    cout << "Exception: " << e.what() << endl;
+  } catch(...) {
+    cout << "Exception: ouch something bad went on = " << endl;
+  }
 
   cout << "\tTest02 - return Tail, list has one elenment" << endl;  
   addTest.list_add_element(201);

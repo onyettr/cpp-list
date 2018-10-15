@@ -399,7 +399,7 @@ int linked_list::list_get_front(void) {
    cout << "<" << this << ">TRACE: list_get_front called "  << endl;  
 #endif
 
-   if (list_count == 0) {
+   if (list_empty()) {
       throw std::runtime_error("linked_list::list_get_front - list is empty");
    }
    else {
