@@ -172,8 +172,8 @@ void linked_list::list_add_element (int value) {
  *
  * @brief     Add a new list element at Position in the list
  *
- * @param[in] int position   Place to insert the new element
- * @param[in] int value      element 
+ * @param[in] position   Place to insert the new element
+ * @param[in] value      element 
  *
  * @return    none
  *
@@ -197,10 +197,10 @@ void linked_list::list_add_position(int position, int value) {
   cout << "<" << this << ">TRACE: list_emplace Created new " << Temp << endl;
 #endif
   
+  pCurrent = pHead;  /* Start of the list */
   /*
    * Traverse the list until we get to position
    */
-  pCurrent = pHead;  /* Start of the list */
   for (int i=1; i < position; i++) {
      pPrevious = pCurrent;
      pCurrent = pCurrent->pNext;
@@ -300,20 +300,54 @@ void linked_list::list_add_at_back(int value) {
 }
 
 /**
- * @fn        void linked_list::list_delete_element(list_element_t *lp)
+ * @fn        void linked_list::list_delete_element(int position)
  *
  * @brief     Remove a list element
  *
- * @param[in] list_element_t *lp    Pointer to list element to delete
+ * @param[in] int  - Position to remove
  *
  * @return    none
- *
+ * @details   Special case test is done for first (or zero) element as this is pointed
+ *            to by pHead, which we must update
+ * @throws    
  * @note
  */
-void linked_list::list_delete_element (list_element_t *pElement) {
+void linked_list::list_delete_element (int position) {
 #if defined ( DEBUG_TRACE )
-    cout << "<" << this << ">TRACE: list_delete_element called "  << endl;  
+  cout << "<" << this << ">TRACE: list_delete_element " << position << " called "  << endl;  
 #endif
+    list_element_t *pCurrent;
+    list_element_t *pPrevious;
+
+    /*
+     * Test if the position element is legal
+     */
+    if (position > list_size()) {
+      throw std::runtime_error("linked_list::list_delete_element - position beyond list_size");
+
+      return;
+    }
+      
+    /*
+     * Test for first element (requires the HEAD to be updated) otherwise
+     * scan the list for the "position" to delete
+     */
+    pCurrent = GetListHead();
+
+    if (position == 0) {                     /* First in the list */
+       pHead = pCurrent->pNext;              /* Update the Head pointer as position zero is deleted */
+       pCurrent->pNext = nullptr;
+    } else {
+      for (auto i=0; i < position; i++) {
+         pPrevious = pCurrent;
+         pCurrent = pCurrent->pNext;
+      }
+      pPrevious->pNext = pCurrent->pNext;    /* Previous entry is now pointing to one beyond the deleted entry */      
+    }
+#if defined (DEBUG_TRACE)
+    cout << "deleting    " << pCurrent;
+#endif    
+    delete [] pCurrent;                      /* Delete the entry at position */
 
     list_count--;
 
@@ -488,14 +522,17 @@ void linked_list::list_dump (void) {
    list_element_t *pCurrent;
   
    if ( !list_empty() ) {
+      int count = 0;
+
       pCurrent = GetListHead();
 
-      cout << "   Address   \tValue\t   pNext\tNumber of Nodes = " << list_count << endl;
+      cout << "      Address   \tValue\t   pNext\tNumber of Nodes = " << list_count << endl;
       while (pCurrent != nullptr) {
-         cout << "[" << pCurrent << "]\t";
+ 	 cout << count << "  [" << pCurrent << "]\t";
          cout << pCurrent->element << "\t[" << pCurrent->pNext << "]" << endl;
 
          pCurrent = pCurrent->pNext;
+	 count++;
     }
   }
   else {

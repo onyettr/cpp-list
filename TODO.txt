@@ -1,11 +1,10 @@
-
 * cpp-list tasks
 ** TODO [PROJ] Convert to Templates
 ** TODO [LIST] list_delete_front()
 ** TODO [LIST] list_delete_back ()
-** TODO [LIST] list.delete(position)
+** DONE [LIST] list.delete(position)
 ** TODO [LIST] list_delete(element)? is this valid?
-** TODO [LIST] Add exception throw to the deletion operations
+** DONE [LIST] Add exception throw to the deletion operations
 ** TODO [LIST] list.sort() to be implemented
 ** TODO [TEST] test harness as library
 ** TODO [LIST] Print function should default to std::cout (std::ostream& stream = std::cout) const

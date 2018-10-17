@@ -237,25 +237,68 @@ TEST_F(LinkedListTest, ListGetEmpty) {
 /**
  * @brief Tests - Delete test
  */
+#if 0  
 TEST_F(LinkedListTest, ListDeleteOneElement) {
   linked_list DelTest;
 
   DelTest.list_add_element(202);
-  DelTest.list_delete_element(DelTest.GetListHead()->pNext);
-  EXPECT_EQ(0,DelTest.list_size());
+  DelTest.list_add_element(203);
+  DelTest.list_add_element(204);
+  DelTest.list_add_element(205);    
+  
+  DelTest.list_delete_element(1);
+  EXPECT_EQ(3,DelTest.list_size());
 }
-
+#endif
 /**
  * @brief Tests - Delete test at Position
  */
-#if 0  
 TEST_F(LinkedListTest, ListDeleteElementAtPosition) {
   linked_list DelTest;
 
   DelTest.list_add_element(202);
-  DelTest.list_delete_element(delTest.GetListHead()->pNext);
-  EXPECT_EQ(0,DelTest.list_size());
+  DelTest.list_add_element(203);
+  DelTest.list_add_element(204);
+  DelTest.list_add_element(205);    
+  DelTest.list_delete_element(2);
+  EXPECT_EQ(3,DelTest.list_size());
 }
-#endif
-  
+
+/**
+ * @brief Tests - Delete test FRONT
+ */
+TEST_F(LinkedListTest, ListDeleteElementFirst) {
+  linked_list DelTest;
+
+  DelTest.list_add_element(202);
+  DelTest.list_add_element(203);
+  DelTest.list_add_element(204);
+  DelTest.list_add_element(205);
+  DelTest.list_dump();  
+  DelTest.list_delete_element(0);
+  DelTest.list_dump();
+  EXPECT_EQ(203, DelTest.list_get_position(0));
+}
+
+/**
+ * @brief Tests - Delete test illegal position
+ */
+TEST_F(LinkedListTest, ListDeleteElementIllegal) {
+  linked_list DelTest;
+
+  DelTest.list_add_element(202);
+
+  try {
+     DelTest.list_delete_element(3);
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
+
 }

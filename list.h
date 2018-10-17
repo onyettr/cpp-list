@@ -77,7 +77,7 @@ class linked_list {
     int  list_get_position(int position); // return value at "position"
     int  list_get_front   (void);         // return value of first list element
     int  list_get_back    (void);         // return value of tail list element
-    void list_delete_element(list_element_t *pElement); // Delete element, decreases list size by 1  
+    void list_delete_element(int position); // Delete element  at position, decreases list size by 1  
     void list_sort        (void);         // Sort the list
     void list_dump        (void);         // Show the contents of the linked list
     int  list_size        (void);         // Number of elements in the list
