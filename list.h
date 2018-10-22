@@ -66,8 +66,9 @@ struct list_element_t {
  */
 class linked_list {
     public:
-        linked_list();                     /*! linked list constructor */
-        ~linked_list();                    /*! linked list destructor  */  
+        linked_list();                    /*! linked list constructor      */
+        linked_list(const linked_list &); /*! linked list copy constructor */
+        ~linked_list();                   /*! linked list destructor       */  
 
     // Member functions
     void list_add_element (int value);    // Add an element to the list, increases list size by 1

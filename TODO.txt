@@ -4,6 +4,11 @@
 ** TODO [LIST] list_delete_back ()
 ** DONE [LIST] list.delete(position)
 ** TODO [LIST] list_delete(element)? is this valid?
+** TODO [LIST] Add list_remove(value)
+** TODO [LIST] Add list_reverse
+** TODO [LIST] Add list_search() returns elemement number
+** TODO [LIST] Add list_clear to remove all list entries
+** TODO [LIST] Add copy constructor
 ** DONE [LIST] Add exception throw to the deletion operations
 ** TODO [LIST] list.sort() to be implemented
 ** TODO [TEST] test harness as library

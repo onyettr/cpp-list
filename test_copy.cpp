@@ -1,11 +1,7 @@
 /**
- *****************************************************************************
  * MODULE: C++ Programming Examples
  *
- * @author onyettr 
- * @brief  test harness header
- * @file   test.h
- ***************************************************************************** 
+ * @brief Test harness for single linked list copy operations
  */
 
 /*
@@ -13,8 +9,10 @@
 Includes
 ******************************************************************************
 */
-#ifndef __TEST_H__
-#define __TEST_H__
+#include <iostream>
+#include "list.h"
+
+using namespace std;
 
 /*
 ******************************************************************************
@@ -52,12 +50,41 @@ Exported Global variables
 ******************************************************************************
 */
 
-int test_add(void);
-int test_del(void);
-int test_size(void);
-int test_copy(void);
-int test_front (void);
-int test_back (void);
-int test_empty(void);
-#endif // __TEST_H__
+/*
+******************************************************************************
+Prototypes of all functions contained in this file (in order of occurance)
+******************************************************************************
+*/
 
+int test_copy( void )
+{
+  // Sign on
+  cout << "**** Linked List Class Test - copy" << endl; 
+
+  /*
+   * create a new list
+   */ 
+  linked_list srcCopyTest;
+  linked_list dstCopyTest;
+  
+  srcCopyTest.list_add_element(100);
+  srcCopyTest.list_add_element(101);
+  srcCopyTest.list_add_element(102);
+  srcCopyTest.list_add_element(103);
+  srcCopyTest.list_add_element(104);      
+
+  cout << "\tTest01 - src list copy, size  " << srcCopyTest.list_size()  << endl;
+  srcCopyTest.list_dump();
+  //  linked_list dstCopyTest = srcCopyTest;
+  dstCopyTest = srcCopyTest;  
+  cout << "\tTest02 - dst list copy, size  " << dstCopyTest.list_size()  << endl;
+  dstCopyTest.list_dump();    
+  cout << "**** Linked List Class Test - copy Ends" << endl;
+  
+  return 0;
+}
+
+//
+// Fin
+//
+  

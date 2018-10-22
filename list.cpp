@@ -65,7 +65,7 @@ Prototypes of all functions contained in this file (in order of occurance)
  *
  * @brief     linked_list constructor
  *
- * @param     
+ * @param     none
  *
  * @return    None
  *
@@ -82,6 +82,39 @@ linked_list::linked_list(void) {
 }
 
 /**
+ * @fn        linked_list::linked_list(void)
+ *
+ * @brief     linked_list constructor
+ *
+ * @param     srcCopyList  - item to copy
+ *
+ * @return    None
+ *
+ * @note      copy constructor
+ */
+linked_list::linked_list(const linked_list& srcCopyList) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: Basic Copy Constructor called"  << endl;  
+#endif
+  int ListItems;
+  list_element_t *pSrcList = srcCopyList.pHead;
+  
+  this->pHead = nullptr;
+  this->pTail = nullptr;
+
+  ListItems = srcCopyList.list_count;
+  for (auto i=0; i  < ListItems; i++) {
+#if defined (DEBUG_TRACE)    
+     cout << "<" << this << ">TRACE: Basic Copy Constructor add "  << pSrcList->element << endl;
+#endif
+     list_add_element(pSrcList->element);
+     pSrcList = pSrcList->pNext;
+  }
+  
+  this->list_count = srcCopyList.list_count;
+}
+
+/**
  * @fn        linked_list::~linked_list()
  *
  * @brief     linked_list destructor
@@ -94,28 +127,29 @@ linked_list::linked_list(void) {
  */
 linked_list::~linked_list(void) {
 #if defined ( DEBUG_TRACE )
-  cout << "<" << this << ">TRACE: Basic Destructor called "  << endl;  
+   cout << "<" << this << ">TRACE: Basic Destructor called "  << endl;  
 #endif
-  list_element_t *pNext;
+   list_element_t *pNext;
 
-  pNext = GetListHead();
-  while (pNext) {
-    list_element_t *pNodeToDelete;
+   pNext = GetListHead();
 
-    pNodeToDelete = pNext;
-    pNext = pNext->pNext;
+   while (pNext) {
+      list_element_t *pNodeToDelete;
+
+      pNodeToDelete = pNext;
+      pNext = pNext->pNext;
 #if defined ( DEBUG_TRACE )
-    cout << "<" << this << ">TRACE: deleting "  << pNodeToDelete << endl;  
+      cout << "<" << this << ">TRACE: deleting "  << pNodeToDelete << endl;  
 #endif
     
-    delete pNodeToDelete;
+      delete pNodeToDelete;
 
-    list_count--;
+      list_count--;
   }
 }
 
 /**
- * @fn        void node::list_add_element(int value)
+ * @fn        void linked_list::list_add_element(int value)
  *
  * @brief     Add a new list element
  *
@@ -123,7 +157,9 @@ linked_list::~linked_list(void) {
  *
  * @return    none
  *
- * @note      This adds to the TAIL of the list
+ * @throw     none
+ *
+ * @note      This creates a new linked_list element and adds to the TAIL of the list
  */
 void linked_list::list_add_element (int value) {
 #if defined ( DEBUG_TRACE )
@@ -160,7 +196,7 @@ void linked_list::list_add_element (int value) {
     pTail->pNext = Temp;
     pTail = pTail->pNext;
   }
-  list_count++;
+  list_count++;        /* Increment the number of items in the list */
 #if defined (DEBUG_TRACE)  
   cout << "<" << this << ">TRACE: list_add_element Head " << pHead << endl;  
   cout << "<" << this << ">TRACE: list_add_element Tail " << pTail << endl;
@@ -214,11 +250,11 @@ void linked_list::list_add_position(int position, int value) {
 }
 
 /**
- * @fn        void node::list_add_at_front(int value)
+ * @fn        void linked_list::list_add_at_front(int value)
  *
  * @brief     Add a new list value to the front of the list
  *
- * @param[in] int value 
+ * @param[in] int     value
  *
  * @return    none
  *
@@ -256,7 +292,7 @@ void linked_list::list_add_at_front(int value) {
 }
 
 /**
- * @fn        void node::list_add_at_back(int value)
+ * @fn        void linked_list::list_add_at_back(int value)
  *
  * @brief     Add a new list value to the back of the list
  *

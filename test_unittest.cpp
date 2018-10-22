@@ -301,4 +301,23 @@ TEST_F(LinkedListTest, ListDeleteElementIllegal) {
   ADD_FAILURE() << "Exception not thrown as expected";
 }
 
+/**
+ * @brief Tests - Copy test
+ */
+TEST_F(LinkedListTest, ListCopyList) {
+  linked_list srcCopyTest;
+
+  srcCopyTest.list_add_element(100);
+  srcCopyTest.list_add_element(101);
+  srcCopyTest.list_add_element(102);
+  srcCopyTest.list_add_element(103);
+  srcCopyTest.list_add_element(104);
+  srcCopyTest.list_dump();
+  
+  linked_list dstCopyTest = srcCopyTest;
+  dstCopyTest.list_dump();      
+
+  EXPECT_EQ(5, dstCopyTest.list_size());
+}
+  
 }
