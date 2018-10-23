@@ -1,7 +1,6 @@
 /**
- * MODULE: C++ Programming Examples
- *
  * @brief Test harness for single linked list Empty operations
+ * @file test_empty.cpp
  */
 
 /*

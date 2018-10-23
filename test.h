@@ -1,7 +1,5 @@
 /**
  *****************************************************************************
- * MODULE: C++ Programming Examples
- *
  * @author onyettr 
  * @brief  test harness header
  * @file   test.h
@@ -59,5 +57,6 @@ int test_copy(void);
 int test_front (void);
 int test_back (void);
 int test_empty(void);
+
 #endif // __TEST_H__
 

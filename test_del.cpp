@@ -1,7 +1,6 @@
 /**
- *
  * @brief Test harness for single linked list delete operation
- * 
+ * @file test_del.cpp
  */
 
 /*

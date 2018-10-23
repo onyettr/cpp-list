@@ -56,8 +56,8 @@ Exported Global variables
  *  @brief Linked list "Element". 
  */
 struct list_element_t {
-    int element;
-    list_element_t *pNext;
+    int element;                          /*! element to store in list    */
+    list_element_t *pNext;                /*! next element in the list    */
 };
 
 /**
@@ -66,9 +66,9 @@ struct list_element_t {
  */
 class linked_list {
     public:
-        linked_list();                    /*! linked list constructor      */
+        linked_list(void);                /*! linked list constructor      */
         linked_list(const linked_list &); /*! linked list copy constructor */
-        ~linked_list();                   /*! linked list destructor       */  
+        ~linked_list(void);               /*! linked list destructor       */  
 
     // Member functions
     void list_add_element (int value);    // Add an element to the list, increases list size by 1
@@ -100,9 +100,9 @@ class linked_list {
 #endif  
   
    private:
-       list_element_t *pHead;             // Head of the Linked List
-       list_element_t *pTail;             // Tail of the Linked List
-       int list_count = 0;                // Number of nodes or Elements in the list
+      list_element_t *pHead;              // Head of the Linked List
+      list_element_t *pTail;              // Tail of the Linked List
+      int list_count = 0;                 // Number of nodes or Elements in the list
 };
 
 #endif // __LIST_H__

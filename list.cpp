@@ -65,9 +65,9 @@ Prototypes of all functions contained in this file (in order of occurance)
  *
  * @brief     linked_list constructor
  *
- * @param     none
+ * @param     
  *
- * @return    None
+ * @return    none
  *
  * @note      constructor
  */
@@ -82,13 +82,13 @@ linked_list::linked_list(void) {
 }
 
 /**
- * @fn        linked_list::linked_list(void)
+ * @fn        linked_list::linked_list(const linked_list& srcCopyList) {
  *
- * @brief     linked_list constructor
+ * @brief     Copy constructor
  *
- * @param     srcCopyList  - item to copy
+ * @param     srcCopyList - List to copy
  *
- * @return    None
+ * @return    none
  *
  * @note      copy constructor
  */
@@ -119,7 +119,7 @@ linked_list::linked_list(const linked_list& srcCopyList) {
  *
  * @brief     linked_list destructor
  *
- * @param[in] none
+ * @param[in] 
  *
  * @return    None
  *
@@ -153,7 +153,7 @@ linked_list::~linked_list(void) {
  *
  * @brief     Add a new list element
  *
- * @param[in] int   element to add
+ * @param[in] value  -  element to add
  *
  * @return    none
  *
@@ -254,7 +254,7 @@ void linked_list::list_add_position(int position, int value) {
  *
  * @brief     Add a new list value to the front of the list
  *
- * @param[in] int     value
+ * @param[in] value - Element to add at the front
  *
  * @return    none
  *
@@ -296,7 +296,7 @@ void linked_list::list_add_at_front(int value) {
  *
  * @brief     Add a new list value to the back of the list
  *
- * @param[in] int value 
+ * @param[in] value  - Element to add at the back
  *
  * @return    none
  *
@@ -340,12 +340,12 @@ void linked_list::list_add_at_back(int value) {
  *
  * @brief     Remove a list element
  *
- * @param[in] int  - Position to remove
+ * @param[in] position - Element Position to remove
  *
  * @return    none
  * @details   Special case test is done for first (or zero) element as this is pointed
  *            to by pHead, which we must update
- * @throws    
+ * @throws    std::runtime_error
  * @note
  */
 void linked_list::list_delete_element (int position) {
@@ -398,7 +398,7 @@ void linked_list::list_delete_element (int position) {
  *
  * @brief     Sort the list
  *
- * @param
+ * @param     none
  *
  * @return    none
  *
@@ -434,7 +434,7 @@ int linked_list::list_size (void) {
  *
  * @brief     Is the list empty?
  *
- * @param[in] none
+ * @param
  *
  * @return    bool TRUE = Empty, FALSE = Not empty
  *
@@ -457,9 +457,9 @@ bool linked_list::list_empty(void) {
  *
  * @brief     return front list value
  *
- * @param[in] none
+ * @param[in] void
  *
- * @return    <T> (int)   Front list value
+ * @return    Front list value
  *
  * @note
  */
@@ -511,7 +511,7 @@ int linked_list::list_get_back(void) {
  *
  * @brief     return value at Position
  *
- * @param[in] int position   Element to return
+ * @param[in] position -  Position of Element to return
  *
  * @return    int value
  *
@@ -548,7 +548,7 @@ int linked_list::list_get_position(int position) {
  *
  * @brief     Print out the single linked list
  *
- * @param
+ * @param     none
  *
  * @return    none
  *

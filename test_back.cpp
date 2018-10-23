@@ -3,7 +3,6 @@
  * @brief  Test harness for single linked list_back operations
  * @file   test_back.cpp
  * @author onyettr
- *
  */
 
 /*

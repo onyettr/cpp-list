@@ -1,6 +1,5 @@
 /**
- *
- * @brief  Test harness for single linked list add operations
+ * @brief  Test harness for single linked list add to front operations
  * @file   test_front.cpp
  * @author onyettr
  *
