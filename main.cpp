@@ -1,9 +1,7 @@
 /**
- * MODULE: C++ Programming Examples
- *
- * @brief  main 
- * @author onyettr 
+ * @brief  main entry - invokes the test harness
  * @file   main.cpp
+ * @author onyettr 
  * @version
  */
 

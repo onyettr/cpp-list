@@ -16,6 +16,7 @@ CFLAGS		=	-g -c -Wall -pedantic
 #CFLAGS		+= 	-DDEBUG_TRACE
 LFLAGS		=
 
+MAKE            = 	gmake
 CHECK		= 	cppcheck
 CHECK_FLAGS	= 	--language=c++ --enable=all -igoogletest
 
@@ -41,12 +42,15 @@ LIBS  = liblist.a
 # all	Creates object directory, builds executable and runs checker
 # lib	Build only the list library, no test harness
 #*******************************************************************************
-all:	$(OBJECT_DIR) list.exe splint-me
+all:	$(OBJECT_DIR) list.exe splint-me gtest
 
 lib:	$(LIBS)
 
 splint-me:
 	$(CHECK) $(CHECK_FLAGS) .
+
+gtest:
+	$(MAKE) -f makefile.gtest
 
 $(OBJECT_DIR):
 	-$(MAKE_DIR_CMD)

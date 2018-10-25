@@ -64,7 +64,7 @@ int test_copy( void )
    * create a new list
    */ 
   linked_list srcCopyTest;
-  linked_list dstCopyTest;
+  //  linked_list dstCopyTest;
   
   srcCopyTest.list_add_element(100);
   srcCopyTest.list_add_element(101);
@@ -74,8 +74,8 @@ int test_copy( void )
 
   cout << "\tTest01 - src list copy, size  " << srcCopyTest.list_size()  << endl;
   srcCopyTest.list_dump();
-  //  linked_list dstCopyTest = srcCopyTest;
-  dstCopyTest = srcCopyTest;  
+  linked_list dstCopyTest = srcCopyTest;
+  // dstCopyTest = srcCopyTest;  
   cout << "\tTest02 - dst list copy, size  " << dstCopyTest.list_size()  << endl;
   dstCopyTest.list_dump();    
   cout << "**** Linked List Class Test - copy Ends" << endl;

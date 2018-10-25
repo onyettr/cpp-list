@@ -562,10 +562,17 @@ void linked_list::list_dump (void) {
 
       pCurrent = GetListHead();
 
-      cout << "      Address   \tValue\t   pNext\tNumber of Nodes = " << list_count << endl;
+      cout << "      Address   \tValue\t   pNext\t# Nodes [" << list_count << "]" << endl;
       while (pCurrent != nullptr) {
  	 cout << count << "  [" << pCurrent << "]\t";
-         cout << pCurrent->element << "\t[" << pCurrent->pNext << "]" << endl;
+         cout << pCurrent->element << "\t[" << pCurrent->pNext << "]";
+         if (pCurrent == GetListHead()) {
+	   cout << "    <--- HEAD" << endl;
+	 } else if (pCurrent == GetListTail()) {
+	   cout << "\t         <--- TAIL" << endl;
+	 } else {
+	   cout << endl;
+	 }
 
          pCurrent = pCurrent->pNext;
 	 count++;
