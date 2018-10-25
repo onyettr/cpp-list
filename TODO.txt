@@ -2,22 +2,20 @@
 ** TODO [PROJ] Convert to Templates
 ** TODO [LIST] list_delete_front()
 ** TODO [LIST] list_delete_back ()
-** DONE [LIST] list.delete(position)
 ** TODO [LIST] list_delete(element)? is this valid?
 ** TODO [LIST] Add list_remove(value)
 ** TODO [LIST] Add list_reverse
 ** TODO [LIST] Add list_search() returns elemement number
 ** TODO [LIST] Add list_clear to remove all list entries
-** TODO [LIST] Add copy constructor
-** DONE [LIST] Add exception throw to the deletion operations
 ** TODO [LIST] list.sort() to be implemented
 ** TODO [TEST] test harness as library
 ** TODO [LIST] Print function should default to std::cout (std::ostream& stream = std::cout) const
 ** TODO [LIST] Use pre-increment rather than post increment
-** DONE [TEST] harness to be split, add exception handling.
-** DONE [LIST] list_get_front - throw exception for empty list
-** DONE [LIST] list_get_front - use empty method to determine list status
 ** TODO [LIST] list_empty -> empty (STL)?
+* Issues
+** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
+* Completed
+** DONE [LIST] Add copy constructor
 ** DONE [LIST] list.isEmpty() from STL
 ** DONE [LIST] list.size()
 ** DONE [LIST] list_add_to_back()
@@ -27,5 +25,8 @@
 ** DONE [LIST] list.get_front() returns the first list value
 ** DONE [LIST] Use nullptr (C++11?)
 
-* Issues
-** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
+** DONE [LIST] Add exception throw to the deletion operations
+** DONE [LIST] list.delete(position)
+** DONE [TEST] harness to be split, add exception handling.
+** DONE [LIST] list_get_front - throw exception for empty list
+** DONE [LIST] list_get_front - use empty method to determine list status
