@@ -676,7 +676,6 @@ int linked_list::list_get_position(int position) {
   return value;
 }
 
-
 /**
  * @fn        void linked_list::list_reverse(void) 
  *
@@ -716,6 +715,45 @@ void linked_list::list_reverse (void) {
     }
     pHead = pPrevious;                   /* New head of the list           */
  cout << "pHead " << pHead << " pTail " << pTail << endl;    
+}
+
+/**
+ * @fn        void linked_list::list_search(int value) 
+ *
+ * @brief     Search the single linked list
+ *
+ * @param     value - What to search for
+ *
+ * @return    int Position - place in the list
+ * @throws    std::runtime_error - list empty
+ * @note
+ */
+int linked_list::list_search (int value) {
+#if defined ( DEBUG_TRACE )
+    cout << "<" << this << ">TRACE: list_search called "  << endl;  
+#endif
+    list_element_t *pCurrent = nullptr;
+    int Position = 0;
+    
+    /*
+     * List is empty?
+     */
+    if (list_size() == 0) {
+      throw std::runtime_error("linked_list::list_reverse - list is empty");
+
+      return -1;
+    }
+
+    pCurrent = GetListHead();            /* Point at the start of the list */
+    while (pCurrent != NULL) {
+      if (pCurrent->element == value) {  /* We have a match                */
+	return Position;
+      }
+      pCurrent = pCurrent->pNext;         /* Advance down the list         */
+      ++Position;
+    }
+
+    return -1;                            /* We have no match              */
 }
 
 /**

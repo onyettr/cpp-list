@@ -395,6 +395,73 @@ TEST_F(LinkedListTest, ListReverseZeroElement) {
   }
   ADD_FAILURE() << "Exception not thrown as expected";
 }
+
+/**
+ * @brief Tests - search one element, postive
+ */
+TEST_F(LinkedListTest, ListSearchOneElementPositive) {
+  linked_list srcTest;
+
+  srcTest.list_add_element(101);
+  EXPECT_EQ(0, srcTest.list_search(101));
+}
+
+/**
+ * @brief Tests - search one element, negative
+ */
+TEST_F(LinkedListTest, ListSearchOneElementNegative) {
+  linked_list srcTest;
+
+  srcTest.list_add_element(101);
+  EXPECT_EQ(-1, srcTest.list_search(102));
+}
+  
+/**
+ * @brief Tests - search multiple element, postive
+ */
+TEST_F(LinkedListTest, ListSearchMultiElementPositive) {
+  linked_list serTest2;
+
+  serTest2.list_add_element(1);
+  serTest2.list_add_element(2);
+  serTest2.list_add_element(3);
+  serTest2.list_add_element(4);
+  serTest2.list_add_element(5);      
+  EXPECT_EQ(3, serTest2.list_search(4));
+}
+
+/**
+ * @brief Tests - search multiple element, negative
+ */
+TEST_F(LinkedListTest, ListSearchMultiElementNegative) {
+  linked_list serTest2;
+
+  serTest2.list_add_element(1);
+  serTest2.list_add_element(2);
+  serTest2.list_add_element(3);
+  serTest2.list_add_element(4);
+  serTest2.list_add_element(5);      
+  EXPECT_EQ(-1, serTest2.list_search(404));
+}
+
+/**
+ * @brief Tests - search empty list
+ */
+TEST_F(LinkedListTest, ListSearchZeroElement) {
+  linked_list serTest3;
+
+  try {
+     serTest3.list_search(101);
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
   
 /**
  * @brief Tests - Copy test

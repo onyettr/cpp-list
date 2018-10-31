@@ -76,6 +76,7 @@ int main ( void )
   test_del_front();
   test_del_back();
   test_rev();
+  test_search();
   test_copy();
   //  poortool_init();
 }

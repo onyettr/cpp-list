@@ -34,6 +34,7 @@ OBJS  = $(OBJECT_DIR)/main.o 	 	\
 	$(OBJECT_DIR)/test_copy.o	\
 	$(OBJECT_DIR)/test_back.o	\
 	$(OBJECT_DIR)/test_front.o	\
+	$(OBJECT_DIR)/test_search.o	\
 	$(OBJECT_DIR)/test_del_back.o	\
 	$(OBJECT_DIR)/test_del_front.o	\
 	$(OBJECT_DIR)/test_empty.o
@@ -97,6 +98,9 @@ $(OBJECT_DIR)/test_back.o:	test_back.cpp
 $(OBJECT_DIR)/test_front.o:	test_front.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_front.cpp -o $(OBJECT_DIR)/test_front.o
 
+$(OBJECT_DIR)/test_search.o:	test_search.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_search.cpp -o $(OBJECT_DIR)/test_search.o
+
 $(OBJECT_DIR)/test_empty.o:	test_empty.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_empty.cpp -o $(OBJECT_DIR)/test_empty.o
 
@@ -116,6 +120,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_copy.o
 	rm -f $(OBJECT_DIR)/test_front.o
 	rm -f $(OBJECT_DIR)/test_empty.o
+	rm -f $(OBJECT_DIR)/test_search.o
 	rm -f $(OBJECT_DIR)/test_del_back.o
 	rm -f $(OBJECT_DIR)/test_del_front.o
 	rm -f $(OBJECT_DIR)/poortool.o

@@ -2,7 +2,6 @@
 ** TODO [PROJ] Convert to Templates
 ** TODO [LIST] list_delete(element)? is this valid?
 ** TODO [LIST] Add list_remove(value)
-** TODO [LIST] Add list_search() returns elemement number
 ** TODO [LIST] Add list_clear to remove all list entries
 ** TODO [LIST] list.sort() to be implemented
 ** TODO [TEST] test harness as library
@@ -12,6 +11,7 @@
 * Issues
 ** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
 * Completed
+** DONE [LIST] Add list_search() returns element number
 ** DONE [LIST] Add list_reverse
 ** DONE [LIST] list_delete_back()
 ** DONE [LIST] list_delete_front()
