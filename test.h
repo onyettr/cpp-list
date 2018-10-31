@@ -58,6 +58,7 @@ int test_copy(void);
 int test_front (void);
 int test_back (void);
 int test_empty(void);
+int test_search(void);
 int test_del_front();
 int test_del_back();
 
