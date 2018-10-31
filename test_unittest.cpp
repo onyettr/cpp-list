@@ -314,17 +314,30 @@ TEST_F(LinkedListTest, ListDeleteFrontEmpty) {
   }
   ADD_FAILURE() << "Exception not thrown as expected";
 }
-  
+
 /**
- * @brief Tests - Delete test illegal position
+ * @brief Tests - Delete test BACK via direct method
  */
-TEST_F(LinkedListTest, ListDeleteElementIllegal) {
+TEST_F(LinkedListTest, ListDeleteElementBack) {
   linked_list DelTest;
 
-  DelTest.list_add_element(202);
+  DelTest.list_add_element(101);
+  DelTest.list_add_element(102);
+  DelTest.list_add_element(103);
+  DelTest.list_dump();  
+  DelTest.list_delete_back();
+  DelTest.list_dump();
+  EXPECT_EQ(102, DelTest.list_get_back());
+}
+
+/**
+ * @brief Tests - Delete back empty list
+ */
+TEST_F(LinkedListTest, ListDeleteBackEmpty) {
+  linked_list DelTest;
 
   try {
-     DelTest.list_delete_element(3);
+     DelTest.list_delete_back();
   }
   catch (std::runtime_error& e) {
     SUCCEED();
@@ -334,6 +347,19 @@ TEST_F(LinkedListTest, ListDeleteElementIllegal) {
     FAIL() << "odd exception?";
   }
   ADD_FAILURE() << "Exception not thrown as expected";
+}
+  
+/**
+ * @brief Tests - Delete back one element
+ */
+TEST_F(LinkedListTest, ListDeleteBackOneElement) {
+  linked_list DelTest;
+
+  DelTest.list_add_element(200);
+  DelTest.list_dump();  
+  DelTest.list_delete_back();
+  DelTest.list_dump();
+  EXPECT_EQ(0, DelTest.list_size());
 }
 
 /**

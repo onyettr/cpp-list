@@ -463,6 +463,70 @@ void linked_list::list_delete_front (void) {
 }
 
 /**
+ * @fn        void linked_list::list_delete_back(void)
+ *
+ * @brief     Remove a list element from the back (tail) of the list
+ *
+ * @param[in] 
+ *
+ * @return    none
+ * @details   
+
+ * @throws    std::runtime_error - list empty
+ * @note
+ */
+void linked_list::list_delete_back (void) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_delete_back called "  << endl;  
+#endif
+    list_element_t *pCurrent;
+
+    /*
+     * List is empty?
+     */
+    if (list_size() == 0) {
+      throw std::runtime_error("linked_list::list_delete_back - list is empty");
+
+      return;
+    }
+
+    pCurrent = GetListHead();
+    
+    /*
+     * test if we have only one element
+     */
+    if (list_size() == 1) {
+      delete(pCurrent);
+      pHead = nullptr;
+      pTail = nullptr;
+      list_count = 0;
+
+      return;
+    }
+
+    /*
+     * Scan from the Head of the list until we find the end
+     * NOTE: we are looking beyond the next for the end
+     */
+    while( pCurrent->pNext->pNext != NULL ) {
+      pCurrent = pCurrent->pNext;
+    }
+
+    /* pCurrent is now at the last (but one) element node */
+    delete [] pCurrent->pNext;     /* Delete the last element */
+
+    pCurrent->pNext = NULL;    /* Current is now the last */
+    pTail = pCurrent;       /* Update the Tail to last */
+    list_count--;            /* Decrement the nodeCount */
+  
+#if defined ( DEBUG_TRACE )
+    cout << "deleting    " << pCurrent->pNext;    
+    cout << "<" << this << ">TRACE: list_delete_back Head " << pHead << endl;  
+    cout << "<" << this << ">TRACE: list_delete_back Tail " << pTail << endl;
+#endif  
+}
+
+/**
  * @fn        void linked_list::list_sort(void)
  *
  * @brief     Sort the list
