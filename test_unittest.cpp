@@ -265,9 +265,9 @@ TEST_F(LinkedListTest, ListDeleteElementAtPosition) {
 }
 
 /**
- * @brief Tests - Delete test FRONT
+ * @brief Tests - Delete test FRONT via Position
  */
-TEST_F(LinkedListTest, ListDeleteElementFirst) {
+TEST_F(LinkedListTest, ListDeleteElementFirstPosition) {
   linked_list DelTest;
 
   DelTest.list_add_element(202);
@@ -280,6 +280,41 @@ TEST_F(LinkedListTest, ListDeleteElementFirst) {
   EXPECT_EQ(203, DelTest.list_get_position(0));
 }
 
+  /**
+ * @brief Tests - Delete test FRONT via direct method
+ */
+TEST_F(LinkedListTest, ListDeleteElementFront) {
+  linked_list DelTest;
+
+  DelTest.list_add_element(202);
+  DelTest.list_add_element(203);
+  DelTest.list_add_element(204);
+  DelTest.list_add_element(205);
+  DelTest.list_dump();  
+  DelTest.list_delete_front();
+  DelTest.list_dump();
+  EXPECT_EQ(203, DelTest.list_get_position(0));
+}
+
+/**
+ * @brief Tests - Delete front empty list
+ */
+TEST_F(LinkedListTest, ListDeleteFrontEmpty) {
+  linked_list DelTest;
+
+  try {
+     DelTest.list_delete_front();
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
+  
 /**
  * @brief Tests - Delete test illegal position
  */

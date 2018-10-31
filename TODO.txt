@@ -1,6 +1,5 @@
 * cpp-list tasks
 ** TODO [PROJ] Convert to Templates
-** TODO [LIST] list_delete_front()
 ** TODO [LIST] list_delete_back ()
 ** TODO [LIST] list_delete(element)? is this valid?
 ** TODO [LIST] Add list_remove(value)
@@ -15,6 +14,7 @@
 * Issues
 ** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
 * Completed
+** DONE [LIST] list_delete_front()
 ** DONE [LIST] Add copy constructor
 ** DONE [LIST] list.isEmpty() from STL
 ** DONE [LIST] list.size()

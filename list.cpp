@@ -5,6 +5,30 @@
  * @author onyettr 
  * @file   list.cpp
  * @version
+ *
+ *  List_element_t           list_element_t       list_element_t
+ *    pHead    ------------>   element             element
+ *    pTail    ------------|   pNext ------------> pNext ---> NULL
+ *                         |                         ^
+ *    list_count=2         |                         |
+ *                         ---------------------------
+ *
+ * List Methods
+ * list_add_element (int value);       Add an element to the list, increases list size by 1
+ * list_add_at_front(int value);       Add an element to the front of the list, increases list size by 1
+ * list_add_at_back (int value);       Add an element to the back  of the list, increases list size by 1
+ * list_add_position(int position, int value); Add an element at position,increases list size by 1
+ * list_get_position(int position);    return value at "position"
+ * list_get_front   (void);            return value of first list element
+ * list_get_back    (void);            return value of tail list element
+ * list_delete_element(int position);  Delete element  at position, decreases list size by 1
+ * list_delete_front(void);            Delete first element of list, decreases list size by 1  
+ * list_sort        (void);            Sort the list
+ * list_dump        (void);            Show the contents of the linked list
+ * list_size        (void);            Number of elements in the list
+ * list_empty       (void);            is the list empty?
+ * GetListHead(void)                   Obtain Head iterator pointing to first element
+ * GetListTail(void)                   Obtain Tail iterator pointing to last element
  */
 
 /*
@@ -390,6 +414,51 @@ void linked_list::list_delete_element (int position) {
 #if defined ( DEBUG_TRACE )  
     cout << "<" << this << ">TRACE: list_delete_element Head " << pHead << endl;  
     cout << "<" << this << ">TRACE: list_delete_element Tail " << pTail << endl;
+#endif  
+}
+
+/**
+ * @fn        void linked_list::list_delete_front(void)
+ *
+ * @brief     Remove a list element from the fromt of the list
+ *
+ * @param[in] 
+ *
+ * @return    none
+ * @details   
+
+ * @throws    std::runtime_error - list empty
+ * @note
+ */
+void linked_list::list_delete_front (void) {
+#if defined ( DEBUG_TRACE )
+  cout << "<" << this << ">TRACE: list_delete_front called "  << endl;  
+#endif
+    list_element_t *pCurrent;
+
+    /*
+     * List is empty?
+     */
+    if (list_size() == 0) {
+      throw std::runtime_error("linked_list::list_delete_front - list is empty");
+
+      return;
+    }
+      
+    pCurrent = GetListHead();
+
+    pHead = pCurrent->pNext;              /* Update the Head pointer as position zero is deleted */
+    pCurrent->pNext = nullptr;
+#if defined (DEBUG_TRACE)
+    cout << "deleting    " << pCurrent;
+#endif    
+    delete [] pCurrent;                      /* Delete the entry at position */
+
+    list_count--;
+
+#if defined ( DEBUG_TRACE )  
+    cout << "<" << this << ">TRACE: list_delete_front Head " << pHead << endl;  
+    cout << "<" << this << ">TRACE: list_delete_front Tail " << pTail << endl;
 #endif  
 }
 
