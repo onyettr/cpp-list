@@ -33,6 +33,7 @@ OBJS  = $(OBJECT_DIR)/main.o 	 	\
 	$(OBJECT_DIR)/test_copy.o	\
 	$(OBJECT_DIR)/test_back.o	\
 	$(OBJECT_DIR)/test_front.o	\
+	$(OBJECT_DIR)/test_del_front.o	\
 	$(OBJECT_DIR)/test_empty.o
 
 LIBS  = liblist.a
@@ -73,6 +74,9 @@ $(OBJECT_DIR)/test_add.o:	test_add.cpp
 $(OBJECT_DIR)/test_del.o:	test_del.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_del.cpp -o $(OBJECT_DIR)/test_del.o
 
+$(OBJECT_DIR)/test_del_front.o:	test_del_front.cpp
+	$(CC) $(CFLAGS) $(DEBUG) test_del_front.cpp -o $(OBJECT_DIR)/test_del_front.o
+
 $(OBJECT_DIR)/test_size.o:	test_size.cpp
 	$(CC) $(CFLAGS) $(DEBUG) test_size.cpp -o $(OBJECT_DIR)/test_size.o
 
@@ -103,6 +107,7 @@ clean:
 	rm -f $(OBJECT_DIR)/test_copy.o
 	rm -f $(OBJECT_DIR)/test_front.o
 	rm -f $(OBJECT_DIR)/test_empty.o
+	rm -f $(OBJECT_DIR)/test_del_front.o
 	rm -f $(OBJECT_DIR)/poortool.o
 	rm -f core
 
