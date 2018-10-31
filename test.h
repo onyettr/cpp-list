@@ -52,6 +52,7 @@ Exported Global variables
 
 int test_add(void);
 int test_del(void);
+int test_rev(void);
 int test_size(void);
 int test_copy(void);
 int test_front (void);

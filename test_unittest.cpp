@@ -363,6 +363,40 @@ TEST_F(LinkedListTest, ListDeleteBackOneElement) {
 }
 
 /**
+ * @brief Tests - reverse mutiple element
+ */
+TEST_F(LinkedListTest, ListReverseMutipleElement) {
+  linked_list revTest2;
+  revTest2.list_add_element(1);
+  revTest2.list_add_element(2);
+  revTest2.list_add_element(3);
+  revTest2.list_add_element(4);
+  revTest2.list_add_element(5);      
+
+  revTest2.list_reverse();  
+  EXPECT_EQ(5, revTest2.list_get_front());
+}
+
+/**
+ * @brief Tests - reverse zero element
+ */
+TEST_F(LinkedListTest, ListReverseZeroElement) {
+  linked_list revTest3;
+
+  try {
+     revTest3.list_reverse();
+  }
+  catch (std::runtime_error& e) {
+    SUCCEED();
+    return;
+  }
+  catch (...) {
+    FAIL() << "odd exception?";
+  }
+  ADD_FAILURE() << "Exception not thrown as expected";
+}
+  
+/**
  * @brief Tests - Copy test
  */
 TEST_F(LinkedListTest, ListCopyList) {

@@ -676,6 +676,48 @@ int linked_list::list_get_position(int position) {
   return value;
 }
 
+
+/**
+ * @fn        void linked_list::list_reverse(void) 
+ *
+ * @brief     reverse the single linked list
+ *
+ * @param     none
+ *
+ * @return    none
+ * @throws    std::runtime_error - list empty
+ * @note
+ */
+void linked_list::list_reverse (void) {
+#if defined ( DEBUG_TRACE )
+    cout << "<" << this << ">TRACE: list_reverse called "  << endl;  
+#endif
+    list_element_t *pCurrent = nullptr;
+    list_element_t *pNext    = nullptr;
+    list_element_t *pPrevious= nullptr;
+
+    /*
+     * List is empty?
+     */
+    if (list_size() == 0) {
+      throw std::runtime_error("linked_list::list_reverse - list is empty");
+
+      return;
+    }
+
+    pCurrent = GetListHead();            /* Point at the start of the list */
+    pTail = pHead;                       /* Swap the tail to point to head */
+ cout << "pHead " << pHead << " pTail " << pTail << endl;
+    while (pCurrent != NULL) {
+      pNext = pCurrent->pNext;           /* Next element in the list       */
+      pCurrent->pNext = pPrevious;       /* Current's 'next' is reversed   */
+      pPrevious = pCurrent;
+      pCurrent = pNext;                  /* Advance down the list          */
+    }
+    pHead = pPrevious;                   /* New head of the list           */
+ cout << "pHead " << pHead << " pTail " << pTail << endl;    
+}
+
 /**
  * @fn        void linked_list::list_dump(void) 
  *
@@ -700,13 +742,13 @@ void linked_list::list_dump (void) {
  	 cout << count << "  [" << pCurrent << "]\t";
          cout << pCurrent->element << "\t[" << pCurrent->pNext << "]";
          if (pCurrent == GetListHead()) {
-	   cout << "    <--- HEAD" << endl;
-	 } else if (pCurrent == GetListTail()) {
-	   cout << "\t         <--- TAIL" << endl;
-	 } else {
-	   cout << endl;
+	   cout << "    <--- HEAD";
 	 }
-
+	 if (pCurrent == GetListTail()) {
+	   cout << "\t         <--- TAIL";
+	 }
+         cout << endl;
+	 
          pCurrent = pCurrent->pNext;
 	 count++;
     }

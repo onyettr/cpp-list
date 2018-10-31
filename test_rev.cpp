@@ -1,8 +1,6 @@
 /**
- * @brief  main entry - invokes the test harness
- * @file   main.cpp
- * @author onyettr 
- * @version
+ * @brief Test harness for single linked list reverse
+ * @file test_rev.cpp
  */
 
 /*
@@ -12,7 +10,6 @@ Includes
 */
 #include <iostream>
 #include "list.h"
-#include "test.h"
 
 using namespace std;
 
@@ -51,7 +48,6 @@ Global variables
 Exported Global variables
 ******************************************************************************
 */
-extern void poortool_init(void);
 
 /*
 ******************************************************************************
@@ -59,25 +55,52 @@ Prototypes of all functions contained in this file (in order of occurance)
 ******************************************************************************
 */
 
-int main ( void )
+int test_rev ( void )
 {
   // Sign on
-  cout << "C++ Examples Simple Linked List Class" << endl; 
+  cout << "**** Linked List Class Test - list reverse" << endl; 
 
-  // Test Cases
-#if 0  
-  test_add();
-  test_front();
-  test_back();  
-  test_del();
-  test_size();
-  test_empty();
-#endif
-  test_del_front();
-  test_del_back();
-  test_rev();
-  test_copy();
-  //  poortool_init();
+  linked_list revTest1;
+  linked_list revTest2;
+  linked_list revTest3;  
+
+  /*
+   * Test01 - single element
+   */
+  cout << "\tTest01 - rev single element" << endl;
+  revTest1.list_add_element(1);
+  revTest1.list_reverse();  
+  revTest1.list_dump();
+
+  /*
+   * Test02 - mulitple elements
+   */
+  cout << "\tTest02 - rev multiple element" << endl;  
+  revTest2.list_add_element(1);
+  revTest2.list_add_element(2);
+  revTest2.list_add_element(3);
+  revTest2.list_add_element(4);
+  revTest2.list_add_element(5);      
+  cout << "\tNumber in list before reverse = " << revTest2.list_size() << endl;  
+  revTest2.list_dump();
+  revTest2.list_reverse();  
+  revTest2.list_dump();
+
+  /*
+   * Test03 - no elements
+   */
+  cout << "\tTest03 - rev zero element, exception to be thrown" << endl;    
+  try {
+    revTest3.list_reverse();
+  } catch (std::runtime_error& e) {
+    cout << "Exception: " << e.what() << endl;
+  } catch(...) {
+    cout << "Exception: ouch something bad went on = " << endl;
+  }
+
+  cout << "**** Linked List Class Test - reverse Ends" << endl;
+  
+  return 0;
 }
 
 //
