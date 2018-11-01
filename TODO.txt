@@ -4,13 +4,13 @@
 ** TODO [LIST] Add list_remove(value)
 ** TODO [LIST] Add list_clear to remove all list entries
 ** TODO [LIST] list.sort() to be implemented
-** TODO [TEST] test harness as library
 ** TODO [LIST] Print function should default to std::cout (std::ostream& stream = std::cout) const
 ** TODO [LIST] Use pre-increment rather than post increment
 ** TODO [LIST] list_empty -> empty (STL)?
 * Issues
 ** DONE test_back: Tail looks incorrect for test2 -> FIXED, wrong call in test harness (cut and paste error)
 * Completed
+** DONE [TEST] test harness as library
 ** DONE [LIST] Add list_search() returns element number
 ** DONE [LIST] Add list_reverse
 ** DONE [LIST] list_delete_back()

@@ -25,8 +25,12 @@ CHECK_FLAGS	= 	--language=c++ --enable=all -igoogletest
 
 # Build objects
 OBJS  = $(OBJECT_DIR)/main.o 	 	\
-	$(OBJECT_DIR)/list.o 	 	\
-	$(OBJECT_DIR)/poortool.o 	\
+	$(OBJECT_DIR)/poortool.o
+
+LIST_OBJS = 				\
+	$(OBJECT_DIR)/list.o
+
+TEST_OBJS = 				\
 	$(OBJECT_DIR)/test_add.o 	\
 	$(OBJECT_DIR)/test_del.o 	\
 	$(OBJECT_DIR)/test_rev.o 	\
@@ -39,7 +43,11 @@ OBJS  = $(OBJECT_DIR)/main.o 	 	\
 	$(OBJECT_DIR)/test_del_front.o	\
 	$(OBJECT_DIR)/test_empty.o
 
-LIBS  = liblist.a
+LISTLIB = liblist.a
+
+TESTLIB = libtest.a
+
+LIBS  	= $(TESTLIB) $(LISTLIB)
 
 #*******************************************************************************
 # Build targets:
@@ -60,10 +68,13 @@ $(OBJECT_DIR):
 	-$(MAKE_DIR_CMD)
 
 list.exe:	$(OBJS) $(LIBS)
-	$(LINK) $(LFLAGS) $(OBJS) -L. -llist -o list.exe
+	$(LINK) $(LFLAGS) $(OBJS) -L. -ltest -llist -o list.exe
 
 $(OBJECT_DIR)/main.o:		main.cpp
 	$(CC) $(CFLAGS) $(DEBUG) main.cpp -o $(OBJECT_DIR)/main.o
+
+libtest.a:	$(TEST_OBJS)
+	$(AR) $(ARFLAGS) libtest.a $(TEST_OBJS)
 
 liblist.a:	$(OBJECT_DIR)/list.o
 	$(AR) $(ARFLAGS) liblist.a $(OBJECT_DIR)/list.o 
@@ -111,6 +122,7 @@ clean:
 	rm -f list.exe
 	rm -f $(OBJECT_DIR)/list.o
 	rm -f liblist.a
+	rm -f libtest.a
 	rm -f $(OBJECT_DIR)/main.o
 	rm -f $(OBJECT_DIR)/test_add.o
 	rm -f $(OBJECT_DIR)/test_del.o

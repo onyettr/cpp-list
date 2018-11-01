@@ -65,7 +65,7 @@ int main ( void )
   cout << "C++ Examples Simple Linked List Class" << endl; 
 
   // Test Cases
-#if 0  
+#if 1
   test_add();
   test_front();
   test_back();  
